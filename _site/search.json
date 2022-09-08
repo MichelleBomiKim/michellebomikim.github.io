@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MichelleKim",
+    "section": "",
+    "text": "Welcome!\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\nplot(iris, pch=20, col=\"firebrick\", cex=.75)"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  }
+]
