@@ -1,4 +1,22 @@
 project:
   title: "assignment 1"
 
+website:
+  title: "MichelleKim.github.io"
+  navbar:
+    left: 
+      - href: index.qmd
+        text: home
+      - href: about.qmd
+        text: Assignments menu
+      - href: assign01.qmd
+      - href: assign02.qmd
+      
+      
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
 editor: visual
