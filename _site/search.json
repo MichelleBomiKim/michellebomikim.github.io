@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "MichelleKim",
+    "title": "Michellebomikim.github.io",
     "section": "",
-    "text": "Welcome!\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\nplot(iris, pch=20, col=\"firebrick\", cex=.75)"
+    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "about.html",
