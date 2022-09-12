@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Michellebomikim.github.io"
+  navbar:
+    Background: "red"
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - text: Assignment
+        menu:
+         - assign01.qmd
+         - assign02.qmd
+
+
+format:
+  html:
+    theme: darkly
+    css: styles.css
+    toc: true
+
+editor: visual
+
