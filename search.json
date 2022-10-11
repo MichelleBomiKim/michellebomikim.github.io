@@ -1,17 +1,10 @@
 [
   {
-    "objectID": "assignments.html",
-    "href": "assignments.html",
+    "objectID": "assignment1.html",
+    "href": "assignment1.html",
     "title": "Assignments",
     "section": "",
     "text": "Assignment 2\n\n\n\n\n\nWhat is pct? \ncharacter that will be plotted in the graph. \nCex value? -size of label that will appear.\nEX)Seq (0,16,4)= 0 to 16 with 4 intervals \nlibrary(tidyverse)\nlibrary(ggplot2)\nlibrary(dplyr)\ndata <- data.frame(\nType=c(“Honda”,“Chevy”,“Toyota”,“Hyundai”) ,\nMPG=c(20,54,73,15) ,\nobs=c(90,500,259,642)\n)\ndata\\(right <- cumsum(data\\)obs) + 30*c(0:(nrow(data)-1))\ndata\\(left <- data\\)right - data$obs\nggplot(data, aes(ymin = 0)) +\ngeom_rect(aes(xmin = left, xmax = right, ymax = MPG, colour = Type, fill = Type)) +\nxlab(“Number of Cars Sampled”) +\nylab(“Miles Per Gallon”) +\ntheme_ipsum()\n\nlibrary(tidyverse)\nlibrary(ggplot2)\nlibrary(dplyr)\ngg_np <- ggplot(data = mpg, aes(x = drv, y = hwy, group = class, col=drv))\ngg_np +\ngeom_col(show.legend = FALSE) +\ntheme_gray() +\nlabs(x = “Type of Drive Train”, y = “Highway Miles per Gallon”) +\nfacet_wrap(~ class)\n\nfor these two graph, the colors are consistent within these two two charts, which it does not make single chart or graph to be outstanding than others. We all contributed on teams meetings and Lesile had put everything together.\nEPPS 6302 Project Proposal\n/https://docs.google.com/presentation/d/1wV-6h-75OAHr9X6xSb9yyf21ZWkOgNZH2V1EQgEbQxg/edit#slide=id.g163ad685155_0_59"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Michelle",
-    "section": "",
-    "text": "I’m currently majoring in SDAR (Socia Data Analytic and Research)"
   },
   {
     "objectID": "project_proposal.html",

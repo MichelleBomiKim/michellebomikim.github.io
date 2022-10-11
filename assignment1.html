@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>michellebomikim – project_proposal</title>
+<title>michellebomikim - Assignments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,6 +59,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -102,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="https://michellebomikim.github.io/blog/">blog</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./project_proposal.html" aria-current="page">EPPS6302</a>
+    <a class="nav-link" href="./project_proposal.html">EPPS6302</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -120,9 +121,65 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Assignments</h1>
+</div>
 
 
-<p>##<a href="https://docs.google.com/presentation/d/1wV-6h-75OAHr9X6xSb9yyf21ZWkOgNZH2V1EQgEbQxg/edit#slide=id.g163ad685155_0_59">project proposal</a></p>
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Assignment 1</p>
+<p><img src="images/%20assignment1.png" class="img-fluid"></p>
+<p><img src="images/%20assignment1-2.png" class="img-fluid"></p>
+<p><img src="images/%20assignment1-3.png" class="img-fluid"></p>
+<p>Assignment 2</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Rplot.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>What is pct?&nbsp;</p>
+<p>character that will be plotted in the graph.&nbsp;</p>
+<p>Cex value? -size of label that will appear.</p>
+<p>EX)Seq (0,16,4)= 0 to 16 with 4 intervals&nbsp;</p>
+<p>library(tidyverse)</p>
+<p>library(ggplot2)</p>
+<p>library(dplyr)</p>
+<p>data &lt;- data.frame(</p>
+<p>Type=c(“Honda”,“Chevy”,“Toyota”,“Hyundai”) ,</p>
+<p>MPG=c(20,54,73,15) ,</p>
+<p>obs=c(90,500,259,642)</p>
+<p>)</p>
+<p>data<span class="math inline">\(right &lt;- cumsum(data\)</span>obs) + 30*c(0:(nrow(data)-1))</p>
+<p>data<span class="math inline">\(left &lt;- data\)</span>right - data$obs</p>
+<p>ggplot(data, aes(ymin = 0)) +</p>
+<p>geom_rect(aes(xmin = left, xmax = right, ymax = MPG, colour = Type, fill = Type)) +</p>
+<p>xlab(“Number of Cars Sampled”) +</p>
+<p>ylab(“Miles Per Gallon”) +</p>
+<p>theme_ipsum()</p>
+<p><img src="images/Rplot04.png" class="img-fluid"></p>
+<p>library(tidyverse)</p>
+<p>library(ggplot2)</p>
+<p>library(dplyr)</p>
+<p>gg_np &lt;- ggplot(data = mpg, aes(x = drv, y = hwy, group = class, col=drv))</p>
+<p>gg_np +</p>
+<p>geom_col(show.legend = FALSE) +</p>
+<p>theme_gray() +</p>
+<p>labs(x = “Type of Drive Train”, y = “Highway Miles per Gallon”) +</p>
+<p>facet_wrap(~ class)</p>
+<p><img src="images/Screen%20Shot%202022-09-28%20at%2011.41.05%20AM.png" class="img-fluid"></p>
+<p>for these two graph, the colors are consistent within these two two charts, which it does not make single chart or graph to be outstanding than others. We all contributed on teams meetings and Lesile had put everything together.</p>
+<p>EPPS 6302 Project Proposal</p>
+<p>/<a href="https://docs.google.com/presentation/d/1wV-6h-75OAHr9X6xSb9yyf21ZWkOgNZH2V1EQgEbQxg/edit#slide=id.g163ad685155_0_59" class="uri">https://docs.google.com/presentation/d/1wV-6h-75OAHr9X6xSb9yyf21ZWkOgNZH2V1EQgEbQxg/edit#slide=id.g163ad685155_0_59</a></p>
 
 
 
