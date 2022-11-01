@@ -19,5 +19,26 @@
     "title": "michellebomikim",
     "section": "",
     "text": "##project proposal"
+  },
+  {
+    "objectID": "Datavisualization_dashboardtemplate_rows.html",
+    "href": "Datavisualization_dashboardtemplate_rows.html",
+    "title": "Dashboard Template",
+    "section": "",
+    "text": "Introduction\nThis is a dashboard in two-row layout. The top row gives introduction to project. The lower row presents the output."
+  },
+  {
+    "objectID": "Datavisualization_dashboardtemplate_rows.html#row-1",
+    "href": "Datavisualization_dashboardtemplate_rows.html#row-1",
+    "title": "Dashboard Template",
+    "section": "Row",
+    "text": "Row\n\nGapminder\n\n\n\n\n\n\ndetail\n\n\nHappy Planet Index\n\nlibrary(rbokeh)\nhpi2016=read.csv(\"https://raw.githubusercontent.com/datageneration/datavisualization/master/data/hpi2016.csv\")\nfigure(width = 800, height = 600, legend_location = \"top_left\") %>%\n  ly_points(AverageLifeExpectancy, HappyPlanetIndex, data = hpi2016, color = Region, glyph = Region, size = 5, hover = list(Region, GDPPC))\n\n\n\n\n\n\n\nLeaflet\n\n\n\n\n\n\n\n\nBase plot\n\nlibrary(RColorBrewer)\nplot(pressure, pch=20, col = \"firebrick\")\n\n\n\n\n\n\nD3_Chord diagram\n\nknitr::include_url(\"https://observablehq.com/embed/@d3/chord-diagram?cells=chart\", height = \"600\")\n\n\n\n\n\nD3 Laddar Graph\n\nknitr::include_url(\"https://karlho.github.io/D3/lg_twclimate/index.html\", height = \"600\")"
+  },
+  {
+    "objectID": "Datavisualization_dashboardtemplate_storyboard (5).html",
+    "href": "Datavisualization_dashboardtemplate_storyboard (5).html",
+    "title": "Storyboard Demonstration",
+    "section": "",
+    "text": "Happy Planet Index\n\nlibrary(rbokeh)\nhpi2016=read.csv(\"https://raw.githubusercontent.com/datageneration/datavisualization/master/data/hpi2016all.csv\")\nfigure(width = 800, height = 600, legend_location = \"top_left\") %>%\n  ly_points(AverageLifeExpectancy, HappyPlanetIndex, data = hpi2016, color = Region, glyph = Region, size = 5, hover = list(Country, GDPPC))\n\n\n\n\n\n\nHappy Planet Index data are presented here.\n\n\nLeaflet\n\n\n\n\n\n\n\nAn interactive map usiing leaflet or mapview can be used here. Instructions of using the map can be loaded here.\n\n\nBase plot\n\nlibrary(RColorBrewer)\nplot(pressure, pch=20, col = \"firebrick\")\n\n\n\n\n\nThis is a simple base plot.\n\n\nD3_Chord diagram\n\nknitr::include_url(\"https://observablehq.com/embed/@d3/chord-diagram?cells=chart\", height = \"600\")\n\n\n\n\nExternal content can be loaded here: in this case, a D3 object/chart.\n\n\nD3 Laddar Graph\n\nknitr::include_url(\"https://karlho.github.io/D3/lg_twclimate/index.html\", height = \"600\")\n\n\n\n\nYou can load your apps or project works here."
   }
 ]
