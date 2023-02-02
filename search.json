@@ -4,28 +4,14 @@
     "href": "assignment1.html",
     "title": "Assignment1",
     "section": "",
-    "text": "Assignment 2\n\n\n\n\n\nWhat is pct? \ncharacter that will be plotted in the graph. \nCex value? -size of label that will appear.\nEX)Seq (0,16,4)= 0 to 16 with 4 intervals \nlibrary(tidyverse)\nlibrary(ggplot2)\nlibrary(dplyr)\ndata <- data.frame(\nType=c(“Honda”,“Chevy”,“Toyota”,“Hyundai”) ,\nMPG=c(20,54,73,15) ,\nobs=c(90,500,259,642)\n)\ndata\\(right <- cumsum(data\\)obs) + 30*c(0:(nrow(data)-1))\ndata\\(left <- data\\)right - data$obs\nggplot(data, aes(ymin = 0)) +\ngeom_rect(aes(xmin = left, xmax = right, ymax = MPG, colour = Type, fill = Type)) +\nxlab(“Number of Cars Sampled”) +\nylab(“Miles Per Gallon”) +\ntheme_ipsum()\n\nlibrary(tidyverse)\nlibrary(ggplot2)\nlibrary(dplyr)\ngg_np <- ggplot(data = mpg, aes(x = drv, y = hwy, group = class, col=drv))\ngg_np +\ngeom_col(show.legend = FALSE) +\ntheme_gray() +\nlabs(x = “Type of Drive Train”, y = “Highway Miles per Gallon”) +\nfacet_wrap(~ class)\n\nfor these two graph, the colors are consistent within these two two charts, which it does not make single chart or graph to be outstanding than others. We all contributed on teams meetings and Lesile had put everything together.\nEPPS 6302 Project Proposal\n/https://docs.google.com/presentation/d/1wV-6h-75OAHr9X6xSb9yyf21ZWkOgNZH2V1EQgEbQxg/edit#slide=id.g163ad685155_0_59"
+    "text": "Google Slides : Yi3RyUCilZo/edit#slide=id.g20320c13c19_0_69XMhRGUqwYD4vrJETNEg1GRok9-hImQj-Yi3RyUCilZo/edit#slide=id.g20320c13c19_0_69"
   },
   {
-    "objectID": "Datavisualization_dashboardtemplate_storyboard (5).html",
-    "href": "Datavisualization_dashboardtemplate_storyboard (5).html",
-    "title": "Storyboard Demonstration",
+    "objectID": "EPPS6323.html",
+    "href": "EPPS6323.html",
+    "title": "michellebomikim",
     "section": "",
-    "text": "Happy Planet Index\n\nlibrary(rbokeh)\nhpi2016=read.csv(\"https://raw.githubusercontent.com/datageneration/datavisualization/master/data/hpi2016all.csv\")\nfigure(width = 800, height = 600, legend_location = \"top_left\") %>%\n  ly_points(AverageLifeExpectancy, HappyPlanetIndex, data = hpi2016, color = Region, glyph = Region, size = 5, hover = list(Country, GDPPC))\n\n\n\n\n\n\nHappy Planet Index data are presented here.\n\n\nLeaflet\n\n\n\n\n\n\n\nAn interactive map usiing leaflet or mapview can be used here. Instructions of using the map can be loaded here.\n\n\nBase plot\n\nlibrary(RColorBrewer)\nplot(pressure, pch=20, col = \"firebrick\")\n\n\n\n\n\nThis is a simple base plot.\n\n\nD3_Chord diagram\n\nknitr::include_url(\"https://observablehq.com/embed/@d3/chord-diagram?cells=chart\", height = \"600\")\n\n\n\n\nExternal content can be loaded here: in this case, a D3 object/chart.\n\n\nD3 Laddar Graph\n\nknitr::include_url(\"https://karlho.github.io/D3/lg_twclimate/index.html\", height = \"600\")\n\n\n\n\nYou can load your apps or project works here."
-  },
-  {
-    "objectID": "Datavisualizationrows.html",
-    "href": "Datavisualizationrows.html",
-    "title": "Dashboard Template",
-    "section": "",
-    "text": "Introduction\nThis is a dashboard in two-row layout. The top row gives introduction to project. The lower row presents the output."
-  },
-  {
-    "objectID": "Datavisualizationrows.html#row-1",
-    "href": "Datavisualizationrows.html#row-1",
-    "title": "Dashboard Template",
-    "section": "Row",
-    "text": "Row\n\nGapminder\n\n\n\n\n\n\ndetail\n\n\nHappy Planet Index\n\nlibrary(rbokeh)\nhpi2016=read.csv(\"https://raw.githubusercontent.com/datageneration/datavisualization/master/data/hpi2016.csv\")\nfigure(width = 800, height = 600, legend_location = \"top_left\") %>%\n  ly_points(AverageLifeExpectancy, HappyPlanetIndex, data = hpi2016, color = Region, glyph = Region, size = 5, hover = list(Region, GDPPC))\n\n\n\n\n\n\n\nLeaflet\n\n\n\n\n\n\n\n\nBase plot\n\nlibrary(RColorBrewer)\nplot(pressure, pch=20, col = \"firebrick\")\n\n\n\n\n\n\nD3_Chord diagram\n\nknitr::include_url(\"https://observablehq.com/embed/@d3/chord-diagram?cells=chart\", height = \"600\")\n\n\n\n\n\nD3 Laddar Graph\n\nknitr::include_url(\"https://karlho.github.io/D3/lg_twclimate/index.html\", height = \"600\")"
+    "text": "DMC- data modeling culture, encourage to pursue ever deeper knowledge production.\nDescription- statistical inference about aspects of distribution of one or more events.\nCausal system events relationship between events in a domain of interest."
   },
   {
     "objectID": "about.html",
@@ -35,10 +21,17 @@
     "text": "I’m currently majoring in SDAR (Socia Data Analytic and Research)"
   },
   {
-    "objectID": "project_proposal.html",
-    "href": "project_proposal.html",
-    "title": "michellebomikim",
+    "objectID": "example.html",
+    "href": "example.html",
+    "title": "example",
     "section": "",
-    "text": "##project proposal"
+    "text": "This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00"
+  },
+  {
+    "objectID": "example.html#including-plots",
+    "href": "example.html#including-plots",
+    "title": "example",
+    "section": "Including Plots",
+    "text": "Including Plots\nYou can also embed plots, for example:\nlibrary(shiny)\nui <- basicPage( plotOutput(“plot1”, click = “plot_click”), verbatimTextOutput(“info”) )\nserver <- function(input, output) { output\\(plot1 <- renderPlot({  plot(mtcars\\)wt, mtcars$mpg) })\noutput\\(info <- renderText({  paste0(\"x=\", input\\)plot_click\\(x, \"\\ny=\", input\\)plot_click$y) }) }\nshinyApp(ui, server)\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot."
   }
 ]
