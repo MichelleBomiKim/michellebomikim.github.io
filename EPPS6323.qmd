@@ -1,0 +1,7 @@
+Readings
+
+DMC- data modeling culture, encourage to pursue ever deeper knowledge production.
+
+Description- statistical inference about aspects of distribution of one or more events.
+
+Causal system events relationship between events in a domain of interest.

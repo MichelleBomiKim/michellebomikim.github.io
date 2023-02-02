@@ -1,0 +1,6 @@
+---
+title: "About Michelle"
+Font: "Times Newroman" 
+---
+
+I'm currently majoring in SDAR (Socia Data Analytic and Research)

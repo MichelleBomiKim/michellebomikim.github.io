@@ -1,0 +1,37 @@
+project:
+  type: website
+
+website:
+  title: "michellebomikim"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: about 
+      - text: EPPS6354
+        menu: 
+          - href: assignment1.qmd
+            text: part1(1,2,3)
+          - href: assignment2.qmd
+            text: assignment2
+          - href: assignmet8
+            text: assignment
+      - href: https://michellebomikim.github.io/blog/
+        text: blog 
+      - href: EPPS6323.qmd
+        text: EPPS6323
+      
+      
+      
+      
+      
+
+format:
+  html:
+    theme: journal  
+    css: styles.css
+    toc: true
+
+editor: visual
+
