@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "assignment1.html",
+    "href": "assignment1.html",
+    "title": "Assignment1",
+    "section": "",
+    "text": "Google Slides : Yi3RyUCilZo/edit#slide=id.g20320c13c19_0_69XMhRGUqwYD4vrJETNEg1GRok9-hImQj-Yi3RyUCilZo/edit#slide=id.g20320c13c19_0_69"
+  },
+  {
+    "objectID": "EPPS6323.html",
+    "href": "EPPS6323.html",
+    "title": "michellebomikim",
+    "section": "",
+    "text": "DMC- data modeling culture, encourage to pursue ever deeper knowledge production.\nDescription- statistical inference about aspects of distribution of one or more events.\nCausal system events relationship between events in a domain of interest."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Michelle",
+    "section": "",
+    "text": "I’m currently majoring in SDAR (Socia Data Analytic and Research)"
+  },
+  {
+    "objectID": "example.html",
+    "href": "example.html",
+    "title": "example",
+    "section": "",
+    "text": "This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00"
+  },
+  {
+    "objectID": "example.html#including-plots",
+    "href": "example.html#including-plots",
+    "title": "example",
+    "section": "Including Plots",
+    "text": "Including Plots\nYou can also embed plots, for example:\nlibrary(shiny)\nui <- basicPage( plotOutput(“plot1”, click = “plot_click”), verbatimTextOutput(“info”) )\nserver <- function(input, output) { output\\(plot1 <- renderPlot({  plot(mtcars\\)wt, mtcars$mpg) })\noutput\\(info <- renderText({  paste0(\"x=\", input\\)plot_click\\(x, \"\\ny=\", input\\)plot_click$y) }) }\nshinyApp(ui, server)\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot."
+  }
+]
