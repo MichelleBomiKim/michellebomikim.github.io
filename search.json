@@ -21,6 +21,13 @@
     "text": "I’m currently majoring in SDAR (Socia Data Analytic and Research)"
   },
   {
+    "objectID": "Assignment1-1.html",
+    "href": "Assignment1-1.html",
+    "title": "michellebomikim",
+    "section": "",
+    "text": "TEDS_2016\\(Tondu<-as.numeric(TEDS_2016\\)Tondu,labels=c(“Unificationnow”, “Statusquo,unif.infuture”, “Statusquo,decidelater”, “Statusquoforever”, “Statusquo,indep.infuture”, “Independencenow”, “Noresponse”))\nbarplot(table_tondu, main = “Barchart of Tondu”, ylab = “Frequency”, names.arg = c(“unification now”, “Statusquo”, “unif.infuture”, “Statusquoforever”, “Statusquo,indep.infuture”, “Independencenow”, “Noresponse”))"
+  },
+  {
     "objectID": "example.html",
     "href": "example.html",
     "title": "example",
