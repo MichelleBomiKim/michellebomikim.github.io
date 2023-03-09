@@ -18,7 +18,7 @@
     "href": "Assignment5.html",
     "title": "Michelle Kim",
     "section": "",
-    "text": "Question 3.\nWeak Entities are dependent on another entity set. They are associated with an identifying entity. If entity set does not have enough attributes to present uniquely, weak entities provide extra information to identify uniquely.\nQuestion4."
+    "text": "Question 3.\nWeak Entities are dependent on another entity set. They are associated with an identifying entity. If entity set does not have enough attributes to present uniquely, weak entities provide extra information to identify uniquely.\nQuestion4.\nSelect e.ID,person_name from employee inner join works on e.ID = w.ID inner join company on W.company_name = company.company_name where employee.city = company.city;\nselect A.ID,A.person_name\nfrom employee A, employee B, manages M\nwhere A.ID = M.ID and\nM.manager_id= B.ID and\nA.street = B.street and A.city = B.city\n4b) Although the query is syntactically correct, it does not compute the expected answer / dept_name is attribute of both “course” and “instructor. Natural join shows only when instructor teaches a course in her or his own department."
   },
   {
     "objectID": "assignment4.html#principal-component-analysis",
