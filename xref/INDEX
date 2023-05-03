@@ -1,0 +1,62 @@
+{
+  "#5.qmd": {
+    "#5.html": "5a95a5fa"
+  },
+  "about.qmd": {
+    "about.html": "7415a4b2"
+  },
+  "Assignment1-1.qmd": {
+    "Assignment1-1.html": "945181d0"
+  },
+  "assignment1.qmd": {
+    "assignment1.html": "fe99c2ee"
+  },
+  "Assignment2.qmd": {
+    "Assignment2.html": "77f38d11"
+  },
+  "assignment4.qmd": {
+    "assignment4.html": "0565d4ed"
+  },
+  "Assignment5.qmd": {
+    "Assignment5.html": "f3aad5d9"
+  },
+  "DMassignment6.qmd": {
+    "DMassignment6.html": "b0dd4423"
+  },
+  "Earthquakedata.qmd": {
+    "Earthquakedata.html": "ffcf4ed1"
+  },
+  "EPPS6323.qmd": {
+    "EPPS6323.html": "beb6ade1"
+  },
+  "EPPS63565.qmd": {
+    "EPPS63565.html": "cd364b22"
+  },
+  "example.Rmd": {
+    "example.html": "b15a6b3b"
+  },
+  "index.qmd": {
+    "index.html": "13916d36"
+  },
+  "lab3.qmd": {
+    "lab3.html": "e006f695"
+  },
+  "ppt.qmd": {
+    "ppt.html": "5efb07f3"
+  },
+  "PPTproposal.qmd": {
+    "PPTproposal.html": "cea699b3"
+  },
+  "Predicting housing price.qmd": {
+    "Predicting housing price.html": "9732cd2d"
+  },
+  "research.qmd": {
+    "research.html": "e65e3d16"
+  },
+  "sqlpractice.qmd": {
+    "sqlpractice.html": "9a248c51"
+  },
+  "HousePricechangprediction.qmd": {
+    "HousePricechangprediction.html": "89ef9c1a"
+  }
+}
