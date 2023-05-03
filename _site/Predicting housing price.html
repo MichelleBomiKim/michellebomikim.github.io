@@ -173,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#transformation" id="toc-transformation" class="nav-link" data-scroll-target="#transformation">transformation</a></li>
   <li><a href="#convert-house-data-sold_month-to-date" id="toc-convert-house-data-sold_month-to-date" class="nav-link" data-scroll-target="#convert-house-data-sold_month-to-date">convert house data sold_month to date</a></li>
   <li><a href="#convert-hpi-date-string-to-date" id="toc-convert-hpi-date-string-to-date" class="nav-link" data-scroll-target="#convert-hpi-date-string-to-date">convert HPI date string to date</a></li>
-  <li><a href="#do-histogram-of-price-squarefeet-lotsize" id="toc-do-histogram-of-price-squarefeet-lotsize" class="nav-link" data-scroll-target="#do-histogram-of-price-squarefeet-lotsize">do histogram of price, squarefeet, lotsize</a>
+  <li><a href="#do-histogram-of-price-squarefeet-lotsize-beds" id="toc-do-histogram-of-price-squarefeet-lotsize-beds" class="nav-link" data-scroll-target="#do-histogram-of-price-squarefeet-lotsize-beds">do histogram of price, squarefeet, lotsize, beds</a>
   <ul class="collapse">
   <li><a href="#create-new-variables-of-house-data" id="toc-create-new-variables-of-house-data" class="nav-link" data-scroll-target="#create-new-variables-of-house-data">create new variables of house data</a></li>
   </ul></li>
@@ -278,7 +278,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="this-project.">this project.</h2>
 <section id="section-1" class="level55">
 <p class="heading"></p>
-<p>library(ggplot2) library(dplyr) library(lubridate) install.packages(‘caret’) install.packages(‘randomForest’) library(caret) install.packages(‘zoo’) library(zoo) library(randomForest) library(rsample) install.packages(‘gbm’) library(gbm)</p>
+<p>library(ggplot2) library(dplyr) library(lubridate) library(caret) library(zoo) library(randomForest) library(rsample) library(gbm) library(extrafont)</p>
 </section>
 <section id="input-data" class="level16">
 <p class="heading">input data</p>
@@ -304,11 +304,11 @@ ul.task-list li input[type="checkbox"] {
 <p>hpi<span class="math inline">\(DATE&lt;-mdy(hpi\)</span>DATE)</p>
 <p>#create lag hpi #library(dplyr) hpi&lt;- hpi %&gt;% mutate(hpi_lag1 = lag(HPI)) %&gt;% mutate(hpi_lag3 = lag(HPI, n=3)) %&gt;% mutate(hpi_lag6= lag(HPI, n=6))</p>
 <p>#create the hpi percentage change hpi<span class="math inline">\(hpi_1m_pct &lt;- (hpi\)</span>HPI-hpi<span class="math inline">\(hpi_lag1)/hpi\)</span>hpi_lag1 hpi<span class="math inline">\(hpi_3m_pct &lt;- (hpi\)</span>HPI-hpi<span class="math inline">\(hpi_lag3)/hpi\)</span>hpi_lag3 hpi<span class="math inline">\(hpi_6m_pct &lt;- (hpi\)</span>HPI-hpi<span class="math inline">\(hpi_lag6)/hpi\)</span>hpi_lag6</p>
-<p>#join house table and hpi table by date house_df&lt;- merge(house_data, hpi,by.x=“base_month”, by.y=“DATE”, all.x= TRUE, all.y=FALSE)</p>
+<p>#join house table and hpi table by date house_df&lt;- merge(house_data, hpi,by.x=“base_month”, by.y=“DATE”, all.x= TRUE, all.y=FALSE) %&gt;% na.omit()</p>
 </section>
-<section id="do-histogram-of-price-squarefeet-lotsize" class="level1">
-<h1>do histogram of price, squarefeet, lotsize</h1>
-<p>hist(house_df<span class="math inline">\(PRICE) hist(house_df\)</span>SQUAREFEET) hist(house_df<span class="math inline">\(LOTSIZE) hist(house_df\)</span>BEDS)</p>
+<section id="do-histogram-of-price-squarefeet-lotsize-beds" class="level1">
+<h1>do histogram of price, squarefeet, lotsize, beds</h1>
+<p>hist(house_df<span class="math inline">\(PRICE, breaks=seq(0,6000000,by=150000), main = "", xlab = "", ylab = "", col = c("white")) hist(house_df\)</span>SQUAREFEET, breaks=seq(0,15000,by=800), main = ““, xlab =”“, ylab =”“, col = c(”white”)) hist(house_df<span class="math inline">\(LOTSIZE, breaks=seq(0,200000,by=10000), main = "", xlab = "", ylab = "", col = c("white")) hist(house_df\)</span>BEDS, breaks=seq(0,7,by=1), main = ““, xlab =”“, ylab =”“, col = c(”white”))</p>
 <section id="create-new-variables-of-house-data" class="level2">
 <h2 class="anchored" data-anchor-id="create-new-variables-of-house-data">create new variables of house data</h2>
 </section>
@@ -395,14 +395,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="build-linear-regression-model" class="level2">
 <h2 class="anchored" data-anchor-id="build-linear-regression-model">build linear regression model</h2>
-<p>reg_model &lt;- lm(log_price ~ #BEDS + BATHS+ SQUAREFEET+ #HPI+ # hpi_lag1+ hpi_lag3+ #hpi_lag6+ # hpi_1m_pct+ hpi_3m_pct+ # hpi_6m_pct+ houseage+ #total_beds_baths, #bath_bed_ratio+ #sqrt_beds+ LOTSIZE_imputed_ind+ log_lotsize, #month_ind, data = train_data ) summary(reg_model) # predict linear regression model on testing data prediction &lt;- predict(reg_model, newdata = test_data) plot(prediction, test_data<span class="math inline">\(log_price) mse_pred&lt;- mean((test_data\)</span>log_price - prediction)^2) sqrt(mse_pred)</p>
+<p>reg_model &lt;- lm(log_price ~ #BEDS + BATHS+ SQUAREFEET+ #HPI+ # hpi_lag1+ hpi_lag3+ #hpi_lag6+ # hpi_1m_pct+ hpi_3m_pct+ # hpi_6m_pct+ houseage+ #total_beds_baths, #bath_bed_ratio+ #sqrt_beds+ LOTSIZE_imputed_ind+ log_lotsize, #month_ind, data = train_data ) summary(reg_model) # predict linear regression model on testing data prediction &lt;- predict(reg_model, newdata = test_data) plot(prediction, test_data<span class="math inline">\(log_price) MSE.linreg = mean((test_data\)</span>log_price - prediction)^2) MSE.linreg prediction &lt;- predict(reg_model, newdata = test_data) plot(prediction, test_data<span class="math inline">\(log_price) abline(lm(test_data\)</span>log_price ~ prediction), col = “red”) MSE.linreg = mean((test_data$log_price - prediction)^2) MSE.linreg</p>
 </section>
 </section>
 <section id="do-prediction-with-lasso" class="level1">
 <h1>do prediction with lasso</h1>
 <p>library(glmnet) grid &lt;- 10^seq(10, -5, length = 1000) # lambda search grid</p>
 <p>x_train&lt;- select(train_data, -log_price) month_df &lt;- data.frame(model.matrix(~ month_ind - 1, data= x_train)) # add column name to month_ind colnames(month_df)&lt;- paste0(“month_”, levels(x_train<span class="math inline">\(month_ind)) x_train2&lt;- cbind(x_train,month_df ) x_train2&lt;- select(x_train2, - month_ind) # change testing data as training data x_test&lt;- select(test_data, -log_price) month_df_test &lt;- data.frame(model.matrix(~ month_ind - 1, data= x_test)) # add column name to minth_ind colnames(month_df)&lt;- paste0("month_", levels(x_test\)</span>month_ind)) x_test2&lt;- cbind(x_test,month_df_test ) x_test2&lt;- select(x_test2, - month_ind)</p>
-<p>lasso_model &lt;- glmnet(x_train2, train_data[ ,“log_price”] , alpha = 1, lambda= grid ) # to find the best lambda set.seed(1) cv.out &lt;- cv.glmnet(as.matrix(x_train2), train_data[ ,“log_price”], alpha = 1) plot(cv.out) bestlam &lt;- cv.out<span class="math inline">\(lambda.min lasso.pred &lt;- predict(lasso_model, s = bestlam, newx = as.matrix(x_test2)) MSE.linreg = mean((lasso.pred - test_data\)</span>log_price)^2) # lowest MSE</p>
+<p>lasso_model &lt;- glmnet(x_train2, train_data[ ,“log_price”] , alpha = 1, lambda= grid ) # to find the best lambda set.seed(1) cv.out &lt;- cv.glmnet(as.matrix(x_train2), train_data[ ,“log_price”], alpha = 1) plot(cv.out) bestlam &lt;- cv.out<span class="math inline">\(lambda.min lasso.pred &lt;- predict(lasso_model, s = bestlam, newx = as.matrix(x_test2)) MSE.lasso = mean((lasso.pred - test_data\)</span>log_price)^2) # lowest MSE</p>
 <section id="build-random-forest-model" class="level2">
 <h2 class="anchored" data-anchor-id="build-random-forest-model">build random forest model</h2>
 <p>#check missing value of train_data train.rf &lt;- na.omit(train_data) colSums(is.na(train_data_rf)) colSums(is.na(train_data)) # check missing value of test_data test.rf &lt;- na.omit(test_data) colSums(is.na(test_data_rf)) colSums(is.na(test_data))</p>
@@ -412,11 +412,11 @@ ul.task-list li input[type="checkbox"] {
 <h1>tune random forest</h1>
 <p>rf.tuning&lt;- tuneRF(select(train.rf, -log_price), train.rf$log_price, ntreeTry=500, stepFactor= 1.5, improve = 0, trace= TRUE, plot=TRUE) mtry = 7 # see rf.tuning … low OOB for 7</p>
 <p>set.seed(1)</p>
-<p>rf &lt;- randomForest(log_price ~ ., data=train.rf, importance=TRUE, proximity=TRUE, ntree=500, mtry=mtry) rf.plot &lt;- plot(rf, log=“y”, main=“OOB Error Rate vs.&nbsp;Number of Trees”) rf.plot</p>
+<p>rf &lt;- randomForest(log_price ~ ., data=train.rf, importance=TRUE, proximity=TRUE, ntree=1000, mtry=mtry) rf.plot &lt;- plot(rf, log=“y”, main=““) rf.plot</p>
 <p>var_importance &lt;- rf$importance var_importance_sorted &lt;- var_importance[order(var_importance[,1], decreasing = FALSE),] barplot(var_importance_sorted[,1], names.arg = rownames(var_importance), xlab = “Score”, main = “Variable Importance”, horiz = TRUE,las=1,) par(mar = c(3, 15, 2, 4))</p>
 <p>train.pred &lt;- train.rf train.pred$PRED &lt;- predict(rf, train.rf)</p>
 <p>test.rf.pred &lt;- test.rf test.rf.pred$PRED &lt;- predict(rf, test.rf)</p>
-<p>rf.pred.plot &lt;- plot(test.rf.pred<span class="math inline">\(PRED, test.rf\)</span>log_price) abline(0, 1) rf.pred.plot</p>
+<p>plot(test.rf.pred<span class="math inline">\(PRED, test.rf\)</span>log_price, main=““, xlab=”Predicted log price”, ylab=“Real log price”) abline(0, 1)</p>
 <p>MSE.rf = mean((test.rf.pred<span class="math inline">\(PRED - test.rf.pred\)</span>log_price)^2)</p>
 </section>
 <section id="prediction" class="level1">

@@ -144,7 +144,7 @@
     "href": "Predicting housing price.html#this-project.",
     "title": "Michelle Kim",
     "section": "this project.",
-    "text": "this project.\n\n\nlibrary(ggplot2) library(dplyr) library(lubridate) install.packages(‘caret’) install.packages(‘randomForest’) library(caret) install.packages(‘zoo’) library(zoo) library(randomForest) library(rsample) install.packages(‘gbm’) library(gbm)\n\n\ninput data\n#read house data house_data<- house_data"
+    "text": "this project.\n\n\nlibrary(ggplot2) library(dplyr) library(lubridate) library(caret) library(zoo) library(randomForest) library(rsample) library(gbm) library(extrafont)\n\n\ninput data\n#read house data house_data<- house_data"
   },
   {
     "objectID": "Predicting housing price.html#create-new-variables-of-house-data",
@@ -172,7 +172,7 @@
     "href": "Predicting housing price.html#build-linear-regression-model",
     "title": "Michelle Kim",
     "section": "build linear regression model",
-    "text": "build linear regression model\nreg_model <- lm(log_price ~ #BEDS + BATHS+ SQUAREFEET+ #HPI+ # hpi_lag1+ hpi_lag3+ #hpi_lag6+ # hpi_1m_pct+ hpi_3m_pct+ # hpi_6m_pct+ houseage+ #total_beds_baths, #bath_bed_ratio+ #sqrt_beds+ LOTSIZE_imputed_ind+ log_lotsize, #month_ind, data = train_data ) summary(reg_model) # predict linear regression model on testing data prediction <- predict(reg_model, newdata = test_data) plot(prediction, test_data\\(log_price) mse_pred<- mean((test_data\\)log_price - prediction)^2) sqrt(mse_pred)"
+    "text": "build linear regression model\nreg_model <- lm(log_price ~ #BEDS + BATHS+ SQUAREFEET+ #HPI+ # hpi_lag1+ hpi_lag3+ #hpi_lag6+ # hpi_1m_pct+ hpi_3m_pct+ # hpi_6m_pct+ houseage+ #total_beds_baths, #bath_bed_ratio+ #sqrt_beds+ LOTSIZE_imputed_ind+ log_lotsize, #month_ind, data = train_data ) summary(reg_model) # predict linear regression model on testing data prediction <- predict(reg_model, newdata = test_data) plot(prediction, test_data\\(log_price) MSE.linreg = mean((test_data\\)log_price - prediction)^2) MSE.linreg prediction <- predict(reg_model, newdata = test_data) plot(prediction, test_data\\(log_price) abline(lm(test_data\\)log_price ~ prediction), col = “red”) MSE.linreg = mean((test_data$log_price - prediction)^2) MSE.linreg"
   },
   {
     "objectID": "Predicting housing price.html#build-random-forest-model",
