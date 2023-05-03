@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Michelle Kim – predicting-housing-price</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Michelle Kim</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">
+ <span class="menu-text">about</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-epps6354" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">EPPS6354</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-epps6354">    
+        <li>
+    <a class="dropdown-item" href="./assignment1.html">
+ <span class="dropdown-text">part1(1,2,3)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Assignment2.html">
+ <span class="dropdown-text">assignment2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sqlpractice.html">
+ <span class="dropdown-text">SQL Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Assignment5.html">
+ <span class="dropdown-text">Assignment5</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ppt.html">
+ <span class="dropdown-text">Proposal</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./EPPS63565.html">
+ <span class="dropdown-text">Assignment6</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./app.r">
+ <span class="dropdown-text">Earthquake</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-epps6323" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">EPPS6323</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-epps6323">    
+        <li>
+    <a class="dropdown-item" href="./HousePricechangprediction.html">
+ <span class="dropdown-text">Housepricechangeprediction</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://michellebomikim.github.io/blog/">
+ <span class="menu-text">blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./EPPS6323.html">
+ <span class="menu-text">EPPS6323</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./research.html">
+ <span class="menu-text">Research</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#project6323." id="toc-project6323." class="nav-link active" data-scroll-target="#project6323.">project6323.</a></li>
+  <li><a href="#xiaoyan-zhang" id="toc-xiaoyan-zhang" class="nav-link" data-scroll-target="#xiaoyan-zhang">xiaoyan Zhang</a></li>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">purpose</a></li>
+  <li><a href="#the-project-is-to-build-the-model-to-forcast-the" id="toc-the-project-is-to-build-the-model-to-forcast-the" class="nav-link" data-scroll-target="#the-project-is-to-build-the-model-to-forcast-the">The project is to build the model to forcast the</a></li>
+  <li><a href="#house-price-useing-house-data-from-redfin-and" id="toc-house-price-useing-house-data-from-redfin-and" class="nav-link" data-scroll-target="#house-price-useing-house-data-from-redfin-and">house price, useing house data from redfin and</a></li>
+  <li><a href="#dallas-hpi-linear-regression-random-forest-and" id="toc-dallas-hpi-linear-regression-random-forest-and" class="nav-link" data-scroll-target="#dallas-hpi-linear-regression-random-forest-and">Dallas HPI, linear regression, random forest, and</a></li>
+  <li><a href="#gradient-boosting-tree-are-used-and-compared-for" id="toc-gradient-boosting-tree-are-used-and-compared-for" class="nav-link" data-scroll-target="#gradient-boosting-tree-are-used-and-compared-for">gradient boosting tree are used and compared for</a></li>
+  <li><a href="#this-project." id="toc-this-project." class="nav-link" data-scroll-target="#this-project.">this project.</a></li>
+  <li><a href="#read-hpi-data" id="toc-read-hpi-data" class="nav-link" data-scroll-target="#read-hpi-data">read HPI data</a></li>
+  <li><a href="#transformation" id="toc-transformation" class="nav-link" data-scroll-target="#transformation">transformation</a></li>
+  <li><a href="#convert-house-data-sold_month-to-date" id="toc-convert-house-data-sold_month-to-date" class="nav-link" data-scroll-target="#convert-house-data-sold_month-to-date">convert house data sold_month to date</a></li>
+  <li><a href="#convert-hpi-date-string-to-date" id="toc-convert-hpi-date-string-to-date" class="nav-link" data-scroll-target="#convert-hpi-date-string-to-date">convert HPI date string to date</a></li>
+  <li><a href="#do-histogram-of-price-squarefeet-lotsize" id="toc-do-histogram-of-price-squarefeet-lotsize" class="nav-link" data-scroll-target="#do-histogram-of-price-squarefeet-lotsize">do histogram of price, squarefeet, lotsize</a>
+  <ul class="collapse">
+  <li><a href="#create-new-variables-of-house-data" id="toc-create-new-variables-of-house-data" class="nav-link" data-scroll-target="#create-new-variables-of-house-data">create new variables of house data</a></li>
+  </ul></li>
+  <li><a href="#extract-sold-year-from-house-data" id="toc-extract-sold-year-from-house-data" class="nav-link" data-scroll-target="#extract-sold-year-from-house-data">extract sold year from house data</a></li>
+  <li><a href="#house-age" id="toc-house-age" class="nav-link" data-scroll-target="#house-age">house age</a></li>
+  <li><a href="#check-price" id="toc-check-price" class="nav-link" data-scroll-target="#check-price">check price</a></li>
+  <li><a href="#impute-the-lotsize-outlier-to-median" id="toc-impute-the-lotsize-outlier-to-median" class="nav-link" data-scroll-target="#impute-the-lotsize-outlier-to-median">impute the lotsize outlier to median</a></li>
+  <li><a href="#drop-rows-of-missing-price" id="toc-drop-rows-of-missing-price" class="nav-link" data-scroll-target="#drop-rows-of-missing-price">drop rows of missing price</a>
+  <ul class="collapse">
+  <li><a href="#variable-transformation" id="toc-variable-transformation" class="nav-link" data-scroll-target="#variable-transformation">variable transformation</a></li>
+  <li><a href="#cross-table" id="toc-cross-table" class="nav-link" data-scroll-target="#cross-table">cross table</a></li>
+  </ul></li>
+  <li><a href="#frequency-of-zip-code" id="toc-frequency-of-zip-code" class="nav-link" data-scroll-target="#frequency-of-zip-code">frequency of zip code</a></li>
+  <li><a href="#frequency-of-number-of-beds" id="toc-frequency-of-number-of-beds" class="nav-link" data-scroll-target="#frequency-of-number-of-beds">frequency of number of beds</a></li>
+  <li><a href="#scatter-plot-of-price-by-living-square-feet" id="toc-scatter-plot-of-price-by-living-square-feet" class="nav-link" data-scroll-target="#scatter-plot-of-price-by-living-square-feet">scatter plot of price by living square feet</a></li>
+  <li><a href="#create-new-variable-age-group" id="toc-create-new-variable-age-group" class="nav-link" data-scroll-target="#create-new-variable-age-group">create new variable age group</a></li>
+  <li><a href="#create-new-variable-month-from-sold-month" id="toc-create-new-variable-month-from-sold-month" class="nav-link" data-scroll-target="#create-new-variable-month-from-sold-month">create new variable month from sold month</a></li>
+  <li><a href="#keep-list" id="toc-keep-list" class="nav-link" data-scroll-target="#keep-list">keep list</a>
+  <ul class="collapse">
+  <li><a href="#build-linear-regression-model" id="toc-build-linear-regression-model" class="nav-link" data-scroll-target="#build-linear-regression-model">build linear regression model</a></li>
+  </ul></li>
+  <li><a href="#do-prediction-with-lasso" id="toc-do-prediction-with-lasso" class="nav-link" data-scroll-target="#do-prediction-with-lasso">do prediction with lasso</a>
+  <ul class="collapse">
+  <li><a href="#build-random-forest-model" id="toc-build-random-forest-model" class="nav-link" data-scroll-target="#build-random-forest-model">build random forest model</a></li>
+  </ul></li>
+  <li><a href="#tune-random-forest" id="toc-tune-random-forest" class="nav-link" data-scroll-target="#tune-random-forest">tune random forest</a></li>
+  <li><a href="#prediction" id="toc-prediction" class="nav-link" data-scroll-target="#prediction">Prediction</a>
+  <ul class="collapse">
+  <li><a href="#build-gradient-boosting-tree-model" id="toc-build-gradient-boosting-tree-model" class="nav-link" data-scroll-target="#build-gradient-boosting-tree-model">build gradient boosting tree model</a></li>
+  </ul></li>
+  <li><a href="#calculate-var-importance" id="toc-calculate-var-importance" class="nav-link" data-scroll-target="#calculate-var-importance">calculate var importance</a></li>
+  <li><a href="#drop-similar-variables-based-on-importance" id="toc-drop-similar-variables-based-on-importance" class="nav-link" data-scroll-target="#drop-similar-variables-based-on-importance"># drop similar variables based on importance</a></li>
+  <li><a href="#train_data2-subsettrain_data-select--chpi_lag3hpi_1m_pcthpi_6m_pcthpi_lag1-hpi" id="toc-train_data2-subsettrain_data-select--chpi_lag3hpi_1m_pcthpi_6m_pcthpi_lag1-hpi" class="nav-link" data-scroll-target="#train_data2-subsettrain_data-select--chpi_lag3hpi_1m_pcthpi_6m_pcthpi_lag1-hpi">train_data2&lt;-subset(train_data, select = -c(hpi_lag3,hpi_1m_pct,hpi_6m_pct,hpi_lag1, HPI))</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#best-tune" id="toc-best-tune" class="nav-link" data-scroll-target="#best-tune">## best tune</a></li>
+  <li><a href="#gbmgrid--expand.gridinteraction.depth-c3579-n.trees-c1050100" id="toc-gbmgrid--expand.gridinteraction.depth-c3579-n.trees-c1050100" class="nav-link" data-scroll-target="#gbmgrid--expand.gridinteraction.depth-c3579-n.trees-c1050100">gbmgrid&lt;- expand.grid(interaction.depth = c(3,5,7,9), n.trees= c(10,50,100),</a></li>
+  <li><a href="#shrinkage-c0.01-0.05-0.1-n.minobsinnode-5" id="toc-shrinkage-c0.01-0.05-0.1-n.minobsinnode-5" class="nav-link" data-scroll-target="#shrinkage-c0.01-0.05-0.1-n.minobsinnode-5">shrinkage =c(0.01, 0.05, 0.1), n.minobsinnode= 5)</a></li>
+  <li><a href="#set.seed123" id="toc-set.seed123" class="nav-link" data-scroll-target="#set.seed123">set.seed(123)</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
+  <li><a href="#gbm_model--trainlog_price-.-datana.filltrain_data20-method-gbm" id="toc-gbm_model--trainlog_price-.-datana.filltrain_data20-method-gbm" class="nav-link" data-scroll-target="#gbm_model--trainlog_price-.-datana.filltrain_data20-method-gbm">gbm_model&lt;- train(log_price~ ., data=na.fill(train_data2,0), method =“gbm”,</a></li>
+  <li><a href="#trcontrol-traincontrolmethod-cv-number-10" id="toc-trcontrol-traincontrolmethod-cv-number-10" class="nav-link" data-scroll-target="#trcontrol-traincontrolmethod-cv-number-10">trControl = trainControl(method =“cv”, number= 10),</a></li>
+  <li><a href="#tunegrid-gbmgrid" id="toc-tunegrid-gbmgrid" class="nav-link" data-scroll-target="#tunegrid-gbmgrid">tuneGrid= gbmgrid)</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
+  <li><a href="#best-tune-1" id="toc-best-tune-1" class="nav-link" data-scroll-target="#best-tune-1">## best tune</a></li>
+  <li><a href="#gbmgrid2--expand.gridinteraction.depth-c912-n.trees-c100-150" id="toc-gbmgrid2--expand.gridinteraction.depth-c912-n.trees-c100-150" class="nav-link" data-scroll-target="#gbmgrid2--expand.gridinteraction.depth-c912-n.trees-c100-150">gbmgrid2&lt;- expand.grid(interaction.depth = c(9,12), n.trees= c(100, 150),</a></li>
+  <li><a href="#shrinkage-c0.01-0.05-0.1-n.minobsinnode-5-1" id="toc-shrinkage-c0.01-0.05-0.1-n.minobsinnode-5-1" class="nav-link" data-scroll-target="#shrinkage-c0.01-0.05-0.1-n.minobsinnode-5-1">shrinkage =c(0.01, 0.05, 0.1), n.minobsinnode= 5)</a></li>
+  <li><a href="#set.seed123-1" id="toc-set.seed123-1" class="nav-link" data-scroll-target="#set.seed123-1">set.seed(123)</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5"></a></li>
+  <li><a href="#gbm_model2--trainlog_price-.-datana.filltrain_data20-method-gbm" id="toc-gbm_model2--trainlog_price-.-datana.filltrain_data20-method-gbm" class="nav-link" data-scroll-target="#gbm_model2--trainlog_price-.-datana.filltrain_data20-method-gbm">gbm_model2&lt;- train(log_price~ ., data=na.fill(train_data2,0), method =“gbm”,</a></li>
+  <li><a href="#trcontrol-traincontrolmethod-cv-number-10-1" id="toc-trcontrol-traincontrolmethod-cv-number-10-1" class="nav-link" data-scroll-target="#trcontrol-traincontrolmethod-cv-number-10-1">trControl = trainControl(method =“cv”, number= 10),</a></li>
+  <li><a href="#tunegrid-gbmgrid2" id="toc-tunegrid-gbmgrid2" class="nav-link" data-scroll-target="#tunegrid-gbmgrid2">tuneGrid= gbmgrid2)</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6"></a></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7"></a></li>
+  <li><a href="#best-model" id="toc-best-model" class="nav-link" data-scroll-target="#best-model">#best model</a></li>
+  <li><a href="#best_model---gbmlog_price-.-data-train_data-n.trees-100" id="toc-best_model---gbmlog_price-.-data-train_data-n.trees-100" class="nav-link" data-scroll-target="#best_model---gbmlog_price-.-data-train_data-n.trees-100">best_model &lt;- gbm(log_price ~ ., data = train_data, n.trees = 100,</a></li>
+  <li><a href="#interaction.depth-9-shrinkage-0.1n.minobsinnode-5" id="toc-interaction.depth-9-shrinkage-0.1n.minobsinnode-5" class="nav-link" data-scroll-target="#interaction.depth-9-shrinkage-0.1n.minobsinnode-5">interaction.depth = 9, shrinkage = 0.1,n.minobsinnode = 5,</a></li>
+  <li><a href="#distribution-gaussianverbose-true" id="toc-distribution-gaussianverbose-true" class="nav-link" data-scroll-target="#distribution-gaussianverbose-true">distribution = “gaussian”,verbose = TRUE)</a></li>
+  <li><a href="#best_pred---predictbest_model-newdata-test_data" id="toc-best_pred---predictbest_model-newdata-test_data" class="nav-link" data-scroll-target="#best_pred---predictbest_model-newdata-test_data">best_pred &lt;- predict(best_model, newdata = test_data)</a></li>
+  <li><a href="#mse-meantest_datalog_price---best_pred2" id="toc-mse-meantest_datalog_price---best_pred2" class="nav-link" data-scroll-target="#mse-meantest_datalog_price---best_pred2">mse&lt;-mean((test_data$log_price - best_pred)^2)</a></li>
+  <li><a href="#mse" id="toc-mse" class="nav-link" data-scroll-target="#mse">mse</a></li>
+  <li><a href="#read-house-data-oot" id="toc-read-house-data-oot" class="nav-link" data-scroll-target="#read-house-data-oot">read house data oot</a></li>
+  <li><a href="#create-required-variables" id="toc-create-required-variables" class="nav-link" data-scroll-target="#create-required-variables">create required variables</a></li>
+  <li><a href="#merge-hpi-table-with-house-table" id="toc-merge-hpi-table-with-house-table" class="nav-link" data-scroll-target="#merge-hpi-table-with-house-table">merge hpi table with house table</a></li>
+  <li><a href="#house-age-1" id="toc-house-age-1" class="nav-link" data-scroll-target="#house-age-1">house age</a></li>
+  <li><a href="#create-new-variable-age-group-1" id="toc-create-new-variable-age-group-1" class="nav-link" data-scroll-target="#create-new-variable-age-group-1">create new variable age group</a></li>
+  <li><a href="#create-new-variable-month-from-sold-month-1" id="toc-create-new-variable-month-from-sold-month-1" class="nav-link" data-scroll-target="#create-new-variable-month-from-sold-month-1">create new variable month from sold month</a></li>
+  <li><a href="#stack-house-data-and-house-oot-data" id="toc-stack-house-data-and-house-oot-data" class="nav-link" data-scroll-target="#stack-house-data-and-house-oot-data">stack house data and house oot data</a></li>
+  <li><a href="#drop-price-from-oot-data" id="toc-drop-price-from-oot-data" class="nav-link" data-scroll-target="#drop-price-from-oot-data">drop price from oot data</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="project6323." class="level2">
+<h2 class="anchored" data-anchor-id="project6323.">project6323.</h2>
+</section>
+<section id="xiaoyan-zhang" class="level2">
+<h2 class="anchored" data-anchor-id="xiaoyan-zhang">xiaoyan Zhang</h2>
+</section>
+<section id="purpose" class="level2">
+<h2 class="anchored" data-anchor-id="purpose">purpose</h2>
+<section id="section" class="level55">
+<p class="heading"></p>
+</section>
+</section>
+<section id="the-project-is-to-build-the-model-to-forcast-the" class="level2">
+<h2 class="anchored" data-anchor-id="the-project-is-to-build-the-model-to-forcast-the">The project is to build the model to forcast the</h2>
+</section>
+<section id="house-price-useing-house-data-from-redfin-and" class="level2">
+<h2 class="anchored" data-anchor-id="house-price-useing-house-data-from-redfin-and">house price, useing house data from redfin and</h2>
+</section>
+<section id="dallas-hpi-linear-regression-random-forest-and" class="level2">
+<h2 class="anchored" data-anchor-id="dallas-hpi-linear-regression-random-forest-and">Dallas HPI, linear regression, random forest, and</h2>
+</section>
+<section id="gradient-boosting-tree-are-used-and-compared-for" class="level2">
+<h2 class="anchored" data-anchor-id="gradient-boosting-tree-are-used-and-compared-for">gradient boosting tree are used and compared for</h2>
+</section>
+<section id="this-project." class="level2">
+<h2 class="anchored" data-anchor-id="this-project.">this project.</h2>
+<section id="section-1" class="level55">
+<p class="heading"></p>
+<p>library(ggplot2) library(dplyr) library(lubridate) install.packages(‘caret’) install.packages(‘randomForest’) library(caret) install.packages(‘zoo’) library(zoo) library(randomForest) library(rsample) install.packages(‘gbm’) library(gbm)</p>
+</section>
+<section id="input-data" class="level16">
+<p class="heading">input data</p>
+<p>#read house data house_data&lt;- house_data</p>
+</section>
+</section>
+<section id="read-hpi-data" class="level1">
+<h1>read HPI data</h1>
+<p>hpi&lt;- Dallas_HPI</p>
+</section>
+<section id="transformation" class="level1">
+<h1>transformation</h1>
+</section>
+<section id="convert-house-data-sold_month-to-date" class="level1">
+<h1>convert house data sold_month to date</h1>
+<p>#library(lubridate)</p>
+<p>house_data<span class="math inline">\(SOLD_MONTH&lt;-mdy(house_data\)</span>SOLD_MONTH) house_data<span class="math inline">\(base_month&lt;- floor_date(house_data\)</span>SOLD_MONTH, unit = “month”) - months(1)</p>
+<p>house_data&lt;- house_data[house_data$SOLD_MONTH&lt; as.Date(“2023-01-01”),]</p>
+<p>house_data2&lt;-house_data[house_data$BEDS ==1, ] #drop beds outlier house_data&lt;- house_data[-2098,]</p>
+</section>
+<section id="convert-hpi-date-string-to-date" class="level1">
+<h1>convert HPI date string to date</h1>
+<p>hpi<span class="math inline">\(DATE&lt;-mdy(hpi\)</span>DATE)</p>
+<p>#create lag hpi #library(dplyr) hpi&lt;- hpi %&gt;% mutate(hpi_lag1 = lag(HPI)) %&gt;% mutate(hpi_lag3 = lag(HPI, n=3)) %&gt;% mutate(hpi_lag6= lag(HPI, n=6))</p>
+<p>#create the hpi percentage change hpi<span class="math inline">\(hpi_1m_pct &lt;- (hpi\)</span>HPI-hpi<span class="math inline">\(hpi_lag1)/hpi\)</span>hpi_lag1 hpi<span class="math inline">\(hpi_3m_pct &lt;- (hpi\)</span>HPI-hpi<span class="math inline">\(hpi_lag3)/hpi\)</span>hpi_lag3 hpi<span class="math inline">\(hpi_6m_pct &lt;- (hpi\)</span>HPI-hpi<span class="math inline">\(hpi_lag6)/hpi\)</span>hpi_lag6</p>
+<p>#join house table and hpi table by date house_df&lt;- merge(house_data, hpi,by.x=“base_month”, by.y=“DATE”, all.x= TRUE, all.y=FALSE)</p>
+</section>
+<section id="do-histogram-of-price-squarefeet-lotsize" class="level1">
+<h1>do histogram of price, squarefeet, lotsize</h1>
+<p>hist(house_df<span class="math inline">\(PRICE) hist(house_df\)</span>SQUAREFEET) hist(house_df<span class="math inline">\(LOTSIZE) hist(house_df\)</span>BEDS)</p>
+<section id="create-new-variables-of-house-data" class="level2">
+<h2 class="anchored" data-anchor-id="create-new-variables-of-house-data">create new variables of house data</h2>
+</section>
+</section>
+<section id="extract-sold-year-from-house-data" class="level1">
+<h1>extract sold year from house data</h1>
+<p>house_df<span class="math inline">\(sold_year &lt;- year(as.Date(house_df\)</span>SOLD_MONTH)) print(house_df$sold_year)</p>
+</section>
+<section id="house-age" class="level1">
+<h1>house age</h1>
+<p>house_df<span class="math inline">\(houseage &lt;- house_df\)</span>sold_year- house_df<span class="math inline">\(YEARBUILT house_df\)</span>houseage</p>
+<p>#total beds and bath house_df<span class="math inline">\(total_beds_baths &lt;- house_df\)</span>BEDS + house_df$BATHS</p>
+<p>#baths and beds ratio house_df<span class="math inline">\(bath_bed_ratio &lt;- ifelse(house_df\)</span>BEDS==0,NA, house_df<span class="math inline">\(BATHS/house_df\)</span>BEDS)</p>
+<p>#living squarefeet and beds ratio house_df<span class="math inline">\(sqrt_beds &lt;- ifelse(house_df\)</span>BEDS==0, NA, house_df<span class="math inline">\(SQUAREFEET/house_df\)</span>BEDS)</p>
+<section id="data-clean" class="level28">
+<p class="heading">data clean</p>
+</section>
+</section>
+<section id="check-price" class="level1">
+<h1>check price</h1>
+<p>quantile(na.omit((house_df<span class="math inline">\(PRICE)),c(0,0.01,0.1,0.25,0.5,0.75,0.9,0.95,0.99,1)) # check beds quantile(na.omit((house_df\)</span>BEDS)),c(0,0.01,0.1,0.25,0.5,0.75,0.9,0.95,0.99,1)) #check baths quantile(na.omit((house_df<span class="math inline">\(BATHS)),c(0,0.01,0.1,0.25,0.5,0.75,0.9,0.95,0.99,1)) #check lotsize quantile(na.omit((house_df\)</span>LOTSIZE)),c(0,0.01,0.1,0.25,0.5,0.75,0.9,0.95,0.99,1)) #check living squarefeet quantile(na.omit((house_df$SQUAREFEET)),c(0,0.01,0.1,0.25,0.5,0.75,0.9,0.95,0.99,1))</p>
+</section>
+<section id="impute-the-lotsize-outlier-to-median" class="level1">
+<h1>impute the lotsize outlier to median</h1>
+<p>med_lot&lt;- median(house_df<span class="math inline">\(LOTSIZE, na.rm = TRUE ) house_df\)</span>LOTSIZE_imputed &lt;- ifelse(is.na(house_df<span class="math inline">\(LOTSIZE)|house_df\)</span>LOTSIZE &gt; 30000|house_df<span class="math inline">\(LOTSIZE&lt; 2000, med_lot,  house_df\)</span>LOTSIZE) house_df<span class="math inline">\(LOTSIZE_imputed_ind&lt;-ifelse(is.na(house_df\)</span>LOTSIZE)|house_df<span class="math inline">\(LOTSIZE &gt; 30000|house_df\)</span>LOTSIZE&lt; 2000, 1,0)</p>
+<p>#check missing value sum(is.na(house_df<span class="math inline">\(PRICE)) sum(is.na(house_df\)</span>LOTSIZE)) sum(is.na(house_df<span class="math inline">\(BEDS)) sum(is.na(house_df\)</span>BATHS)) sum(is.na(house_df$SQUAREFEET))</p>
+<p>#rows missing #rows_missing &lt;- setdiff(1:nrow(house_df[“PRICE”]),which(complete.cases((house_df$PRICE))))</p>
+</section>
+<section id="drop-rows-of-missing-price" class="level1">
+<h1>drop rows of missing price</h1>
+<p>house_df &lt;- house_df[complete.cases(house_df$PRICE), ]</p>
+<section id="variable-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="variable-transformation">variable transformation</h2>
+<p>#log transformation for house price, lotsize, squarefeet</p>
+<p>hist(house_df<span class="math inline">\(PRICE) hist(log(house_df\)</span>PRICE)) house_df<span class="math inline">\(log_price &lt;- log(house_df\)</span>PRICE)</p>
+<p>hist(house_df<span class="math inline">\(SQUAREFEET) hist(log(house_df\)</span>SQUAREFEET)) # log sqrt is skewed to the left, original is better</p>
+<p>hist(house_df<span class="math inline">\(LOTSIZE_imputed) hist(log(house_df\)</span>LOTSIZE_imputed)) house_df<span class="math inline">\(log_lotsize &lt;- log(house_df\)</span>LOTSIZE_imputed) hist(house_df<span class="math inline">\(BEDS) hist(house_df\)</span>BATHS)</p>
+<section id="data-analysis" class="level29">
+<p class="heading">data analysis</p>
+</section>
+</section>
+<section id="cross-table" class="level2">
+<h2 class="anchored" data-anchor-id="cross-table">cross table</h2>
+</section>
+</section>
+<section id="frequency-of-zip-code" class="level1">
+<h1>frequency of zip code</h1>
+<p>zip_freq&lt;- table(house_df<span class="math inline">\(ZIP) zip_freq #frequency of house age houseage_freq &lt;- table(house_df\)</span>houseage) houseage_freq</p>
+</section>
+<section id="frequency-of-number-of-beds" class="level1">
+<h1>frequency of number of beds</h1>
+<p>beds_freq&lt;- table(house_df<span class="math inline">\(BEDS) beds_freq # frequency of number of baths baths_freq&lt;- table(house_df\)</span>BATHS) baths_freq #cross table by zip <em>number of beds ZIP_BEDS&lt;- xtabs(~ ZIP + BEDS, data= house_df) ZIP_BEDS #cross table by zip </em>number of baths ZIP_BATHS&lt;- xtabs(~ ZIP + BATHS, data = house_df) ZIP_BATHS #cross table by number of beds * number of baths beds_baths&lt;- xtabs(~ BEDS + BATHS, data = house_df ) beds_baths</p>
+<p>#mean price by month price_aver_month&lt;-aggregate(PRICE~ SOLD_MONTH, data= house_df, mean) price_aver_month plot(price_aver_month<span class="math inline">\(SOLD_MONTH,price_aver_month\)</span>PRICE, xlab=“SOLD_MONTH”, ylab =“PRICE”, main=“Mean Price by Month”, type= “l”,xaxt = “n”) # xaxt = “n” removes default x-axis labels axis(side = 1, at = price_aver_month<span class="math inline">\(SOLD_MONTH, labels = price_aver_month\)</span>SOLD_MONTH)</p>
+<p>#mean price by number of beds price_aver_beds&lt;-aggregate(PRICE ~ BEDS , data= house_df, mean) price_aver_beds plot(price_aver_beds<span class="math inline">\(BEDS,price_aver_beds\)</span>PRICE, xlab=“BEDS”, ylab =“PRICE”, main=“Mean Price by Beds”, type= “l”,xaxt = “n”) # xaxt = “n” removes default x-axis labels axis(side = 1, at = price_aver_beds<span class="math inline">\(BEDS, labels = price_aver_beds\)</span>BEDS)</p>
+<p>#mean price by number of baths price_aver_BATHS&lt;-aggregate(PRICE ~ BATHS , data= house_df, mean) price_aver_BATHS plot(price_aver_BATHS<span class="math inline">\(BATHS,price_aver_BATHS\)</span>PRICE, xlab=“BATHS”, ylab =“PRICE”, main=“Mean Price by Baths”, type= “l”,xaxt = “n”) # xaxt = “n” removes default x-axis labels axis(side = 1, at = price_aver_BATHS<span class="math inline">\(BATHS, labels = price_aver_BATHS\)</span>BATHS) #mean price by houseage price_aver_houseage&lt;-aggregate(PRICE ~ houseage , data= house_df, mean) price_aver_houseage plot(price_aver_houseage<span class="math inline">\(houseage,price_aver_houseage\)</span>PRICE, xlab=“houseage”, ylab =“PRICE”, main=“Mean Price by houseage”, type= “l”,xaxt = “n”) # xaxt = “n” removes default x-axis labels axis(side = 1, at = price_aver_houseage<span class="math inline">\(houseage, labels = price_aver_houseage\)</span>houseage)</p>
+</section>
+<section id="scatter-plot-of-price-by-living-square-feet" class="level1">
+<h1>scatter plot of price by living square feet</h1>
+<p>p &lt;- ggplot(house_df,aes(x=SQUAREFEET, y=PRICE ))+geom_point()+ geom_smooth(method=“lm”, se = FALSE) print(p)</p>
+<p>#median price by month price_med_month &lt;- aggregate(PRICE ~ SOLD_MONTH, data=house_df, median) plot(price_med_month<span class="math inline">\(SOLD_MONTH, price_med_month\)</span>PRICE, xlab=“SOLD_MONTH”, ylab =“PRICE”, main=“Median Price by Month”, type= “l”,xaxt = “n”) # xaxt = “n” removes default x-axis labels axis(side = 1, at = price_med_month<span class="math inline">\(SOLD_MONTH, labels = price_med_month\)</span>SOLD_MONTH)</p>
+<p>#median price by number of beds price_med_beds &lt;- aggregate(PRICE ~ BEDS, data=house_df, median) plot(price_med_beds<span class="math inline">\(BEDS, price_med_beds\)</span>PRICE, xlab=“BEDS”, ylab =“PRICE”, main=“Median Price by Beds”, type= “l”,xaxt = “n”) # xaxt = “n” removes default x-axis labels axis(side = 1, at = price_med_beds<span class="math inline">\(BEDS, labels = price_med_beds\)</span>BEDS)</p>
+<p>#median price by baths price_med_baths &lt;- aggregate(PRICE ~ BATHS, data=house_df, median) plot(price_med_baths<span class="math inline">\(BATHS, price_med_baths\)</span>PRICE, xlab=“BATHS”, ylab =“PRICE”, main=“Median Price by Baths”, type= “l”,xaxt = “n”) # xaxt = “n” removes default x-axis labels axis(side = 1, at = price_med_baths<span class="math inline">\(BATHS, labels = price_med_baths\)</span>BATHS)</p>
+<p>#median price by houseage price_med_houseage &lt;- aggregate(PRICE ~ houseage, data=house_df, median) plot(price_med_houseage<span class="math inline">\(houseage, price_med_houseage\)</span>PRICE, xlab=“houseage”, ylab =“PRICE”, main=“Median Price by houseage”, type= “l”,xaxt = “n”) # xaxt = “n” removes default x-axis labels axis(side = 1, at = price_med_houseage<span class="math inline">\(houseage, labels = price_med_houseage\)</span>houseage)</p>
+</section>
+<section id="create-new-variable-age-group" class="level1">
+<h1>create new variable age group</h1>
+<p>#library(dplyr) house_df &lt;- house_df %&gt;% mutate(age_group = cut(houseage, breaks = c(-0.5,5,10,15,20,25, Inf), labels = c(“0-5”, “6-10”, “11-15”,“16-20”,“21-25”,“25+”))) house_df #mean price by age group price_aver_age_group&lt;-aggregate(PRICE ~ age_group , data= house_df, mean) price_aver_age_group plot(price_aver_age_group<span class="math inline">\(age_group,price_aver_age_group\)</span>PRICE, xlab=“age_group”, ylab =“PRICE”, main=“Mean Price by age_group”, type= “p”,xaxt = “n”) # xaxt = “n” removes default x-axis labels axis(side = 1, at = price_aver_age_group<span class="math inline">\(age_group, labels = price_aver_age_group\)</span>age_group)</p>
+<p>#median price by age group price_med_age_group&lt;-aggregate(PRICE ~ age_group , data= house_df, median) price_med_age_group plot(price_med_age_group<span class="math inline">\(age_group,price_med_age_group\)</span>PRICE, xlab=“age_group”, ylab =“PRICE”, main=“Median Price by age_group”, type= “p”,xaxt = “n”) # xaxt = “n” removes default x-axis labels axis(side = 1, at = price_med_age_group<span class="math inline">\(age_group, labels = price_med_age_group\)</span>age_group)</p>
+</section>
+<section id="create-new-variable-month-from-sold-month" class="level1">
+<h1>create new variable month from sold month</h1>
+<p>house_df<span class="math inline">\(month_ind&lt;- as.factor(month(house_df\)</span>SOLD_MONTH))</p>
+</section>
+<section id="keep-list" class="level1">
+<h1>keep list</h1>
+<p>keep_list&lt;- c(“BEDS”,“BATHS”,“SQUAREFEET”,“HPI”,“hpi_lag1”,“hpi_lag3”,“hpi_lag6”,“hpi_1m_pct”, “hpi_3m_pct”,“hpi_6m_pct”,“houseage”,“total_beds_baths”,“bath_bed_ratio”,“sqrt_beds”,“LOTSIZE_imputed_ind”, “log_price”,“log_lotsize”, “month_ind”) house_df&lt;-house_df[,keep_list]</p>
+<section id="split-the-data" class="level18">
+<p class="heading">split the data</p>
+<p>#split the data to training data and testing data</p>
+<p>library(rsample) set.seed(123) initial_split_df&lt;- initial_split(house_df, prop = 0.7) train_data&lt;- training(initial_split_df) test_data&lt;- testing(initial_split_df)</p>
+<section id="build-3-models" class="level27">
+<p class="heading">build 3 models</p>
+</section>
+</section>
+<section id="build-linear-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="build-linear-regression-model">build linear regression model</h2>
+<p>reg_model &lt;- lm(log_price ~ #BEDS + BATHS+ SQUAREFEET+ #HPI+ # hpi_lag1+ hpi_lag3+ #hpi_lag6+ # hpi_1m_pct+ hpi_3m_pct+ # hpi_6m_pct+ houseage+ #total_beds_baths, #bath_bed_ratio+ #sqrt_beds+ LOTSIZE_imputed_ind+ log_lotsize, #month_ind, data = train_data ) summary(reg_model) # predict linear regression model on testing data prediction &lt;- predict(reg_model, newdata = test_data) plot(prediction, test_data<span class="math inline">\(log_price) mse_pred&lt;- mean((test_data\)</span>log_price - prediction)^2) sqrt(mse_pred)</p>
+</section>
+</section>
+<section id="do-prediction-with-lasso" class="level1">
+<h1>do prediction with lasso</h1>
+<p>library(glmnet) grid &lt;- 10^seq(10, -5, length = 1000) # lambda search grid</p>
+<p>x_train&lt;- select(train_data, -log_price) month_df &lt;- data.frame(model.matrix(~ month_ind - 1, data= x_train)) # add column name to month_ind colnames(month_df)&lt;- paste0(“month_”, levels(x_train<span class="math inline">\(month_ind)) x_train2&lt;- cbind(x_train,month_df ) x_train2&lt;- select(x_train2, - month_ind) # change testing data as training data x_test&lt;- select(test_data, -log_price) month_df_test &lt;- data.frame(model.matrix(~ month_ind - 1, data= x_test)) # add column name to minth_ind colnames(month_df)&lt;- paste0("month_", levels(x_test\)</span>month_ind)) x_test2&lt;- cbind(x_test,month_df_test ) x_test2&lt;- select(x_test2, - month_ind)</p>
+<p>lasso_model &lt;- glmnet(x_train2, train_data[ ,“log_price”] , alpha = 1, lambda= grid ) # to find the best lambda set.seed(1) cv.out &lt;- cv.glmnet(as.matrix(x_train2), train_data[ ,“log_price”], alpha = 1) plot(cv.out) bestlam &lt;- cv.out<span class="math inline">\(lambda.min lasso.pred &lt;- predict(lasso_model, s = bestlam, newx = as.matrix(x_test2)) MSE.linreg = mean((lasso.pred - test_data\)</span>log_price)^2) # lowest MSE</p>
+<section id="build-random-forest-model" class="level2">
+<h2 class="anchored" data-anchor-id="build-random-forest-model">build random forest model</h2>
+<p>#check missing value of train_data train.rf &lt;- na.omit(train_data) colSums(is.na(train_data_rf)) colSums(is.na(train_data)) # check missing value of test_data test.rf &lt;- na.omit(test_data) colSums(is.na(test_data_rf)) colSums(is.na(test_data))</p>
+</section>
+</section>
+<section id="tune-random-forest" class="level1">
+<h1>tune random forest</h1>
+<p>rf.tuning&lt;- tuneRF(select(train.rf, -log_price), train.rf$log_price, ntreeTry=500, stepFactor= 1.5, improve = 0, trace= TRUE, plot=TRUE) mtry = 7 # see rf.tuning … low OOB for 7</p>
+<p>set.seed(1)</p>
+<p>rf &lt;- randomForest(log_price ~ ., data=train.rf, importance=TRUE, proximity=TRUE, ntree=500, mtry=mtry) rf.plot &lt;- plot(rf, log=“y”, main=“OOB Error Rate vs.&nbsp;Number of Trees”) rf.plot</p>
+<p>var_importance &lt;- rf$importance var_importance_sorted &lt;- var_importance[order(var_importance[,1], decreasing = FALSE),] barplot(var_importance_sorted[,1], names.arg = rownames(var_importance), xlab = “Score”, main = “Variable Importance”, horiz = TRUE,las=1,) par(mar = c(3, 15, 2, 4))</p>
+<p>train.pred &lt;- train.rf train.pred$PRED &lt;- predict(rf, train.rf)</p>
+<p>test.rf.pred &lt;- test.rf test.rf.pred$PRED &lt;- predict(rf, test.rf)</p>
+<p>rf.pred.plot &lt;- plot(test.rf.pred<span class="math inline">\(PRED, test.rf\)</span>log_price) abline(0, 1) rf.pred.plot</p>
+<p>MSE.rf = mean((test.rf.pred<span class="math inline">\(PRED - test.rf.pred\)</span>log_price)^2)</p>
+</section>
+<section id="prediction" class="level1">
+<h1>Prediction</h1>
+<p>test_pred &lt;- predict(bag_train_data, newdata = test_data_rf) plot(test_pred, test_data_rf<span class="math inline">\(log_price) abline(0, 1) mean((test_pred - test_data_rf\)</span>log_price)^2)</p>
+<section id="build-gradient-boosting-tree-model" class="level2">
+<h2 class="anchored" data-anchor-id="build-gradient-boosting-tree-model">build gradient boosting tree model</h2>
+<p>library(gbm) # drop similar variables based on importance train_data2&lt;-subset(train_data, select = -c(hpi_lag3,hpi_1m_pct,hpi_6m_pct,hpi_lag1, HPI))</p>
+<p>set.seed(1) n_trees &lt;- 100 learning_rate &lt;- 0.1 max_depth &lt;- 10 pred_train&lt;- matrix(0, nrow = nrow(train_data2), ncol = n_trees)</p>
+<p>pred_test &lt;- matrix(0, nrow = nrow(test_data), ncol = n_trees) #use for loop to make predict for (i in 1:n_trees) { model &lt;- gbm(log_price ~ ., data = train_data2, n.trees = i, interaction.depth = max_depth, shrinkage = learning_rate, distribution = “gaussian”) pred_train[, i] &lt;- predict(model, newdata = train_data2, n.trees = i) pred_test[, i] &lt;- predict(model, newdata = test_data, n.trees = i) }</p>
+<p>#combine the prediction error_list_train &lt;- apply((pred_train-train_data2$log_price)^2, 2, mean)</p>
+<p>error_list_test &lt;- apply((pred_test-test_data$log_price)^2, 2, mean)</p>
+<p>plot(1:n_trees, error_list_train, type=“l”, col= “blue”, xlab=“nTree”, ylab=“Error”, )</p>
+<p>lines(1:n_trees,error_list_test, type=“l”, col = “red”) legend(“topright”, legend = c(“error_list_train”, “error_list_test”), col = c(“blue”, “red”), lty = 1)</p>
+<p>#best model best_model &lt;- gbm(log_price ~ ., data = train_data, n.trees = 60, interaction.depth = 10, shrinkage = 0.1,n.minobsinnode = 5, distribution = “gaussian”) best_pred &lt;- predict(best_model, newdata = test_data) MSE.gbm = mean((test_data$log_price - best_pred)^2)</p>
+</section>
+</section>
+<section id="calculate-var-importance" class="level1">
+<h1>calculate var importance</h1>
+<p>var_importance&lt;- summary(model) # sort var importance in descending order var_importance_sorted &lt;- var_importance[order(var_importance[,2], decreasing = FALSE),] barplot(var_importance_sorted$rel.inf, names.arg = rownames(var_importance), xlab = “Score”, main = “variable importance”, horiz = TRUE,las=1,) par(mar = c(3, 12, 2, 4))</p>
+</section>
+<section id="drop-similar-variables-based-on-importance" class="level1">
+<h1># drop similar variables based on importance</h1>
+</section>
+<section id="train_data2-subsettrain_data-select--chpi_lag3hpi_1m_pcthpi_6m_pcthpi_lag1-hpi" class="level1">
+<h1>train_data2&lt;-subset(train_data, select = -c(hpi_lag3,hpi_1m_pct,hpi_6m_pct,hpi_lag1, HPI))</h1>
+</section>
+<section id="section-2" class="level1">
+<h1></h1>
+</section>
+<section id="best-tune" class="level1">
+<h1>## best tune</h1>
+</section>
+<section id="gbmgrid--expand.gridinteraction.depth-c3579-n.trees-c1050100" class="level1">
+<h1>gbmgrid&lt;- expand.grid(interaction.depth = c(3,5,7,9), n.trees= c(10,50,100),</h1>
+</section>
+<section id="shrinkage-c0.01-0.05-0.1-n.minobsinnode-5" class="level1">
+<h1>shrinkage =c(0.01, 0.05, 0.1), n.minobsinnode= 5)</h1>
+</section>
+<section id="set.seed123" class="level1">
+<h1>set.seed(123)</h1>
+</section>
+<section id="section-3" class="level1">
+<h1></h1>
+</section>
+<section id="gbm_model--trainlog_price-.-datana.filltrain_data20-method-gbm" class="level1">
+<h1>gbm_model&lt;- train(log_price~ ., data=na.fill(train_data2,0), method =“gbm”,</h1>
+</section>
+<section id="trcontrol-traincontrolmethod-cv-number-10" class="level1">
+<h1>trControl = trainControl(method =“cv”, number= 10),</h1>
+</section>
+<section id="tunegrid-gbmgrid" class="level1">
+<h1>tuneGrid= gbmgrid)</h1>
+</section>
+<section id="section-4" class="level1">
+<h1></h1>
+</section>
+<section id="best-tune-1" class="level1">
+<h1>## best tune</h1>
+</section>
+<section id="gbmgrid2--expand.gridinteraction.depth-c912-n.trees-c100-150" class="level1">
+<h1>gbmgrid2&lt;- expand.grid(interaction.depth = c(9,12), n.trees= c(100, 150),</h1>
+</section>
+<section id="shrinkage-c0.01-0.05-0.1-n.minobsinnode-5-1" class="level1">
+<h1>shrinkage =c(0.01, 0.05, 0.1), n.minobsinnode= 5)</h1>
+</section>
+<section id="set.seed123-1" class="level1">
+<h1>set.seed(123)</h1>
+</section>
+<section id="section-5" class="level1">
+<h1></h1>
+</section>
+<section id="gbm_model2--trainlog_price-.-datana.filltrain_data20-method-gbm" class="level1">
+<h1>gbm_model2&lt;- train(log_price~ ., data=na.fill(train_data2,0), method =“gbm”,</h1>
+</section>
+<section id="trcontrol-traincontrolmethod-cv-number-10-1" class="level1">
+<h1>trControl = trainControl(method =“cv”, number= 10),</h1>
+</section>
+<section id="tunegrid-gbmgrid2" class="level1">
+<h1>tuneGrid= gbmgrid2)</h1>
+</section>
+<section id="section-6" class="level1">
+<h1></h1>
+</section>
+<section id="section-7" class="level1">
+<h1></h1>
+</section>
+<section id="best-model" class="level1">
+<h1>#best model</h1>
+</section>
+<section id="best_model---gbmlog_price-.-data-train_data-n.trees-100" class="level1">
+<h1>best_model &lt;- gbm(log_price ~ ., data = train_data, n.trees = 100,</h1>
+</section>
+<section id="interaction.depth-9-shrinkage-0.1n.minobsinnode-5" class="level1">
+<h1>interaction.depth = 9, shrinkage = 0.1,n.minobsinnode = 5,</h1>
+</section>
+<section id="distribution-gaussianverbose-true" class="level1">
+<h1>distribution = “gaussian”,verbose = TRUE)</h1>
+</section>
+<section id="best_pred---predictbest_model-newdata-test_data" class="level1">
+<h1>best_pred &lt;- predict(best_model, newdata = test_data)</h1>
+</section>
+<section id="mse-meantest_datalog_price---best_pred2" class="level1">
+<h1>mse&lt;-mean((test_data$log_price - best_pred)^2)</h1>
+</section>
+<section id="mse" class="level1">
+<h1>mse</h1>
+<section id="out-of-time-testing" class="level33">
+<p class="heading">out of time testing</p>
+</section>
+</section>
+<section id="read-house-data-oot" class="level1">
+<h1>read house data oot</h1>
+<p>house_data_oot&lt;- read.csv(“C:\Users\xiaoy\Desktop\UTDS23\6323\project\house_data_oot.csv”)</p>
+<p>house_data_oot<span class="math inline">\(SOLD_MONTH&lt;- as.Date("2023-01-01") house_data_oot\)</span>base_month&lt;- floor_date(house_data_oot$SOLD_MONTH, unit = “month”) - months(1)</p>
+</section>
+<section id="create-required-variables" class="level1">
+<h1>create required variables</h1>
+</section>
+<section id="merge-hpi-table-with-house-table" class="level1">
+<h1>merge hpi table with house table</h1>
+<p>house_df_oot&lt;- merge(house_data_oot, hpi,by.x=“base_month”, by.y=“DATE”, all.x= TRUE, all.y=FALSE) house_df_oot<span class="math inline">\(sold_year &lt;- year(as.Date(house_df_oot\)</span>SOLD_MONTH))</p>
+</section>
+<section id="house-age-1" class="level1">
+<h1>house age</h1>
+<p>house_df_oot<span class="math inline">\(houseage &lt;- house_df_oot\)</span>sold_year- house_df_oot$YEARBUILT</p>
+<p>#total beds and bath house_df_oot<span class="math inline">\(total_beds_baths &lt;- house_df_oot\)</span>BEDS + house_df_oot$BATHS</p>
+<p>#baths and beds ratio house_df_oot<span class="math inline">\(bath_bed_ratio &lt;- ifelse(house_df_oot\)</span>BEDS==0,NA, house_df_oot<span class="math inline">\(BATHS/house_df_oot\)</span>BEDS)</p>
+<p>#living squarefeet and beds ratio house_df_oot<span class="math inline">\(sqrt_beds &lt;- ifelse(house_df_oot\)</span>BEDS==0, NA, house_df_oot<span class="math inline">\(SQUAREFEET/house_df_oot\)</span>BEDS) # impute the lotsize outlier to median med_lot&lt;- median(house_df_oot<span class="math inline">\(LOTSIZE, na.rm = TRUE )# we should training median as imputation house_df_oot\)</span>LOTSIZE_imputed &lt;- ifelse(is.na(house_df_oot<span class="math inline">\(LOTSIZE)|house_df_oot\)</span>LOTSIZE &gt; 30000|house_df_oot<span class="math inline">\(LOTSIZE&lt; 2000, med_lot,  house_df_oot\)</span>LOTSIZE) house_df_oot<span class="math inline">\(LOTSIZE_imputed_ind&lt;-ifelse(is.na(house_df_oot\)</span>LOTSIZE)|house_df_oot<span class="math inline">\(LOTSIZE &gt; 30000|house_df_oot\)</span>LOTSIZE&lt; 2000, 1,0)</p>
+<p>#create log lotsize house_df_oot<span class="math inline">\(log_lotsize &lt;- log(house_df_oot\)</span>LOTSIZE_imputed)</p>
+</section>
+<section id="create-new-variable-age-group-1" class="level1">
+<h1>create new variable age group</h1>
+<p>#library(dplyr) house_df_oot &lt;- house_df_oot %&gt;% mutate(age_group = cut(houseage, breaks = c(-0.5,5,10,15,20,25, Inf), labels = c(“0-5”, “6-10”, “11-15”,“16-20”,“21-25”,“25+”))) house_df_oot</p>
+</section>
+<section id="create-new-variable-month-from-sold-month-1" class="level1">
+<h1>create new variable month from sold month</h1>
+<p>house_df_oot<span class="math inline">\(month_ind&lt;- as.factor(month(house_df_oot\)</span>SOLD_MONTH))</p>
+<p>#predict oot data on best model house_df_oot<span class="math inline">\(pred_log_price &lt;- predict(best_model, newdata = house_df_oot) house_df_oot\)</span>pred_price &lt;- exp(house_df_oot$pred_log_price)</p>
+<p>pred_error_oot&lt;- ((house_df_oot<span class="math inline">\(pred_price- house_df_oot\)</span>PRICE)/ house_df_oot$PRICE)</p>
+</section>
+<section id="stack-house-data-and-house-oot-data" class="level1">
+<h1>stack house data and house oot data</h1>
+</section>
+<section id="drop-price-from-oot-data" class="level1">
+<h1>drop price from oot data</h1>
+<p>house_df_oot2&lt;- subset(house_df_oot, select = -c(PRICE))</p>
+<p>house_df_extended&lt;- bind_rows(house_df,house_df_oot2 )</p>
+<p>#median price by month price_med_month_act &lt;- aggregate(PRICE ~ SOLD_MONTH, data=house_df_extended, median)</p>
+<p>price_med_month_pred&lt;- aggregate(pred_price ~ SOLD_MONTH, data=house_df_extended, median) price_med_month &lt;- bind_rows(price_med_month_act,price_med_month_pred ) price_med_month<span class="math inline">\(price_all &lt;- ifelse(price_med_month\)</span>SOLD_MONTH &lt; “2023-01-01” , price_med_month<span class="math inline">\(PRICE, price_med_month\)</span>pred_price) price_med_month &lt;- price_med_month%&gt;% mutate(price_all_lag1 = lag(price_all))%&gt;% mutate(price_1m_change =( (price_all/price_all_lag1)-1)*100)</p>
+<p>par(mar = c(5, 4, 4, 8)) plot(price_med_month<span class="math inline">\(SOLD_MONTH, price_med_month\)</span>price_all, xlab=“SOLD_MONTH”, ylab =“PRICE”, main=“Median Price by Month”, type= “l”,xaxt = “n”,col=“red”, lty= “dotted”) # xaxt = “n” removes default x-axis labels axis(side = 1, at = price_med_month<span class="math inline">\(SOLD_MONTH, labels = price_med_month\)</span>SOLD_MONTH) lines(price_med_month<span class="math inline">\(SOLD_MONTH,price_med_month\)</span>PRICE, type=“l”, col = “blue”) par(new = TRUE) # Add new plot plot(price_med_month<span class="math inline">\(SOLD_MONTH, price_med_month\)</span>price_1m_change, # Create second plot without axes axes = FALSE, xlab=““, ylab =”“, col=”green”,type=“l”) axis(side = 4) # Add second axis mtext(“percentage(%)”, side = 4, line = 3)</p>
+<p>legend(“topleft”, legend = c( “Predict median price”, “Actual median price”,“1 month price change”), col = c(“red”, “blue”,“green”), lty = 1)</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
