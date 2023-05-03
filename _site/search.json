@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Michelle",
+    "section": "",
+    "text": "I’m currently majoring in SDAR (Socia Data Analytic and Research)"
+  },
+  {
+    "objectID": "Assignment1-1.html",
+    "href": "Assignment1-1.html",
+    "title": "Michelle Kim",
+    "section": "",
+    "text": "install.packages(“haven”) library(haven) summary(“TEDS_2016”) TEDS_2016<-read_stata(“https://github.com/datageneration/home/blob/master/DataProgramming/data/TEDS_2016.dta?raw=true”) #There are missing values #How to deal with Missingvalues is.na(“Tondu”) install.packages(“tidyverse”) library(“tidyverse”) install.packages(“dplyr”) Tondu_female <- xtabs(~ Tondu + female, data= TEDS_2016) Tondu_female Tondu_income <- xtabs(~ Tondu + income, data = TEDS_2016 ) Tondu_income Tondu_vontesai <- xtabs(~ Tondu + votetsai, data = TEDS_2016) boxplot(age ~ Tondu, data=TEDS_2016, xlab = “Tondu”, ylab = “age”, main = “Tondu and Age”)\nTEDS_2016\\(Tondu<-as.numeric(TEDS_2016\\)Tondu,labels=c(“Unificationnow”, “Statusquo,unif.infuture”, “Statusquo,decidelater”, “Statusquoforever”, “Statusquo,indep.infuture”, “Independencenow”, “Noresponse”))\nbarplot(table_tondu, main = “Barchart of Tondu”, ylab = “Frequency”, names.arg = c(“unification now”, “Statusquo”, “unif.infuture”, “Statusquoforever”, “Statusquo,indep.infuture”, “Independencenow”, “Noresponse”))"
+  },
+  {
     "objectID": "assignment1.html",
     "href": "assignment1.html",
     "title": "Assignment1",
@@ -7,18 +21,46 @@
     "text": "Google Slides : Yi3RyUCilZo/edit#slide=id.g20320c13c19_0_69XMhRGUqwYD4vrJETNEg1GRok9-hImQj-Yi3RyUCilZo/edit#slide=id.g20320c13c19_0_69"
   },
   {
-    "objectID": "EPPS6323.html",
-    "href": "EPPS6323.html",
-    "title": "michellebomikim",
+    "objectID": "Assignment2.html",
+    "href": "Assignment2.html",
+    "title": "Michelle Kim",
     "section": "",
-    "text": "DMC- data modeling culture, encourage to pursue ever deeper knowledge production.\nDescription- statistical inference about aspects of distribution of one or more events.\nCausal system events relationship between events in a domain of interest."
+    "text": "Assignment2\nhttps://docs.google.com/presentation/d/17UuIJb9nWSp0AsZ7pAPO6CxRmOL2ZKJGCQKj4vMByrQ/edit#slide=id.g208bf22879d_0_64"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Michelle",
+    "objectID": "assignment4.html#principal-component-analysis",
+    "href": "assignment4.html#principal-component-analysis",
+    "title": "Michelle Kim",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\nlibrary(datasets) library(ISLR) arrest = USArrests states=row.names(USArrests) names(USArrests) # Get means and variances of variables apply(USArrests, 2, mean) apply(USArrests, 2, var) # PCA with scaling pr.out=prcomp(USArrests, scale=TRUE) names(pr.out) # Five pr.out\\(center # the centering and scaling used (means) pr.out\\)scale # the matrix of variable loadings (eigenvectors) dim(pr.out\\(x) pr.out\\)rotation=-pr.out\\(rotation pr.out\\)x=-pr.out\\(x biplot(pr.out, scale=0) pr.out\\)sdev pr.var=pr.out$sdev^2 pr.var pve=pr.var/sum(pr.var) pve plot(pve, xlab=“Principal Component”, ylab=“Proportion of Variance Explained”, ylim=c(0,1),type=‘b’)\nlibrary(dplyr) library(ggplot2) library(RColorBrewer)\ncomputers = read.csv(“https://raw.githubusercontent.com/guru99-edu/R-Programming/master/computers.csv”)\nrescaled_comp <- computers[4:5] %>% mutate(hd_scal = scale(hd), ram_scal = scale(ram)) %>% select(c(hd_scal, ram_scal))\nggplot(data = rescaled_comp, aes(x = hd_scal, y = ram_scal)) + geom_point(pch=20, col = “blue”) + theme_bw() + labs(x = “Hard drive size (Scaled)”, y =“RAM size (Scaled)” ) + theme(text = element_text(family=“Georgia”))\nlibrary(dplyr) library(ggplot2) library(RColorBrewer)\ncomputers = read.csv(“https://raw.githubusercontent.com/guru99-edu/R-Programming/master/computers.csv”)\nOnly retain two variables for illustration\nrescaled_comp <- computers[4:5] %>% mutate(hd_scal = scale(hd), ram_scal = scale(ram)) %>% select(c(hd_scal, ram_scal))\nggplot(data = rescaled_comp, aes(x = hd_scal, y = ram_scal)) + geom_point(pch=20, col = “blue”) + theme_bw() + labs(x = “Hard drive size (Scaled)”, y =“RAM size (Scaled)” ) + theme(text = element_text(family=“Georgia”))\ninstall.packages(“animation”)\ninstall.packages(“animation”) library(animation) set.seed(2345) library(animation)\nAnimate the K-mean clustering process, cluster no. = 4\nkmeans.ani(rescaled_comp[1:2], centers = 4, pch = 15:18, col = 1:4)"
+  },
+  {
+    "objectID": "Assignment5.html",
+    "href": "Assignment5.html",
+    "title": "Michelle Kim",
     "section": "",
-    "text": "I’m currently majoring in SDAR (Socia Data Analytic and Research)"
+    "text": "Question2.\n\nQuestion 3.\nWeak Entities are dependent on another entity set. They are associated with an identifying entity. If entity set does not have enough attributes to present uniquely, weak entities provide extra information to identify uniquely.\nQuestion4.\nSelect e.ID,person_name from employee inner join works on e.ID = w.ID inner join company on W.company_name = company.company_name where employee.city = company.city;\n4b) Although the query is syntactically correct, it does not compute the expected answer / dept_name is attribute of both “course” and “instructor. Natural join shows only when instructor teaches a course in her or his own department."
+  },
+  {
+    "objectID": "DMassignment6.html",
+    "href": "DMassignment6.html",
+    "title": "Michelle Kim",
+    "section": "",
+    "text": "library(haven) TEDS_2016<-read_stata(“https://github.com/datageneration/home/blob/master/DataProgramming/data/TEDS_2016.dta?raw=true”) data <- “TEDS_2016” summary(data) nrow(data)\nglm.vt=glm(votetsai~edu,data=TEDS_2016,family=binomial) summary(glm.vt)"
+  },
+  {
+    "objectID": "Earthquakedata.html",
+    "href": "Earthquakedata.html",
+    "title": "Michelle Kim",
+    "section": "",
+    "text": "Earthquake<- query_1_ Earthquake2<- newdata<- subset(Earthquake, select = c(latitude, mag, longitude, time, place, depth))"
+  },
+  {
+    "objectID": "EPPS6323.html",
+    "href": "EPPS6323.html",
+    "title": "Michelle Kim",
+    "section": "",
+    "text": "Readings\nDMC- data modeling culture, encourage to pursue ever deeper knowledge production.\nDescription- statistical inference about aspects of distribution of one or more events.\nCausal system events relationship between events in a domain of interest."
   },
   {
     "objectID": "example.html",
@@ -33,5 +75,117 @@
     "title": "example",
     "section": "Including Plots",
     "text": "Including Plots\nYou can also embed plots, for example:\nlibrary(shiny)\nui <- basicPage( plotOutput(“plot1”, click = “plot_click”), verbatimTextOutput(“info”) )\nserver <- function(input, output) { output\\(plot1 <- renderPlot({  plot(mtcars\\)wt, mtcars$mpg) })\noutput\\(info <- renderText({  paste0(\"x=\", input\\)plot_click\\(x, \"\\ny=\", input\\)plot_click$y) }) }\nshinyApp(ui, server)\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Michellebomikim",
+    "section": "",
+    "text": "This is a Michelle Kim’s website. Most of my assignments can be find here! I’m currently enrolled in Data Visualization and Data Methods."
+  },
+  {
+    "objectID": "lab3.html",
+    "href": "lab3.html",
+    "title": "Michelle Kim",
+    "section": "",
+    "text": "library(haven) library(regplot) TEDS_2016 <- read_stata(“https://github.com/datageneration/home/blob/master/DataProgramming/data/TEDS_2016.dta?raw=true”) summary(TEDS_2016) TEDS_2016\\(Tondu <-as.numeric(TEDS_2016\\)Tondu,labels=c(“Unification now”, “Status quo, unif. in future”, “Status quo, decide later”, “Status quo forever”, “Status quo, indep. in future”, “Independence now”, “No response”)) df1 <- TEDS_2016[,c(“Tondu”, “age”,“edu”,“income”)] reg <- lm (Tondu~ age+ edu + income, data=df1) summary(reg) regplot(reg)"
+  },
+  {
+    "objectID": "PPTproposal.html",
+    "href": "PPTproposal.html",
+    "title": "Michelle Kim",
+    "section": "",
+    "text": "https://docs.google.com/presentation/d/1aojfTLAhsshz88oTHppkk8XJ3_kiANNtXNWO-Uz_ugQ/edit?usp=sharing"
+  },
+  {
+    "objectID": "Predicting housing price.html#xiaoyan-zhang",
+    "href": "Predicting housing price.html#xiaoyan-zhang",
+    "title": "Michelle Kim",
+    "section": "xiaoyan Zhang",
+    "text": "xiaoyan Zhang"
+  },
+  {
+    "objectID": "Predicting housing price.html#purpose",
+    "href": "Predicting housing price.html#purpose",
+    "title": "Michelle Kim",
+    "section": "purpose",
+    "text": "purpose"
+  },
+  {
+    "objectID": "Predicting housing price.html#the-project-is-to-build-the-model-to-forcast-the",
+    "href": "Predicting housing price.html#the-project-is-to-build-the-model-to-forcast-the",
+    "title": "Michelle Kim",
+    "section": "The project is to build the model to forcast the",
+    "text": "The project is to build the model to forcast the"
+  },
+  {
+    "objectID": "Predicting housing price.html#house-price-useing-house-data-from-redfin-and",
+    "href": "Predicting housing price.html#house-price-useing-house-data-from-redfin-and",
+    "title": "Michelle Kim",
+    "section": "house price, useing house data from redfin and",
+    "text": "house price, useing house data from redfin and"
+  },
+  {
+    "objectID": "Predicting housing price.html#dallas-hpi-linear-regression-random-forest-and",
+    "href": "Predicting housing price.html#dallas-hpi-linear-regression-random-forest-and",
+    "title": "Michelle Kim",
+    "section": "Dallas HPI, linear regression, random forest, and",
+    "text": "Dallas HPI, linear regression, random forest, and"
+  },
+  {
+    "objectID": "Predicting housing price.html#gradient-boosting-tree-are-used-and-compared-for",
+    "href": "Predicting housing price.html#gradient-boosting-tree-are-used-and-compared-for",
+    "title": "Michelle Kim",
+    "section": "gradient boosting tree are used and compared for",
+    "text": "gradient boosting tree are used and compared for"
+  },
+  {
+    "objectID": "Predicting housing price.html#this-project.",
+    "href": "Predicting housing price.html#this-project.",
+    "title": "Michelle Kim",
+    "section": "this project.",
+    "text": "this project.\n\n\nlibrary(ggplot2) library(dplyr) library(lubridate) install.packages(‘caret’) install.packages(‘randomForest’) library(caret) install.packages(‘zoo’) library(zoo) library(randomForest) library(rsample) install.packages(‘gbm’) library(gbm)\n\n\ninput data\n#read house data house_data<- house_data"
+  },
+  {
+    "objectID": "Predicting housing price.html#create-new-variables-of-house-data",
+    "href": "Predicting housing price.html#create-new-variables-of-house-data",
+    "title": "Michelle Kim",
+    "section": "create new variables of house data",
+    "text": "create new variables of house data"
+  },
+  {
+    "objectID": "Predicting housing price.html#variable-transformation",
+    "href": "Predicting housing price.html#variable-transformation",
+    "title": "Michelle Kim",
+    "section": "variable transformation",
+    "text": "variable transformation\n#log transformation for house price, lotsize, squarefeet\nhist(house_df\\(PRICE) hist(log(house_df\\)PRICE)) house_df\\(log_price <- log(house_df\\)PRICE)\nhist(house_df\\(SQUAREFEET) hist(log(house_df\\)SQUAREFEET)) # log sqrt is skewed to the left, original is better\nhist(house_df\\(LOTSIZE_imputed) hist(log(house_df\\)LOTSIZE_imputed)) house_df\\(log_lotsize <- log(house_df\\)LOTSIZE_imputed) hist(house_df\\(BEDS) hist(house_df\\)BATHS)\n\ndata analysis"
+  },
+  {
+    "objectID": "Predicting housing price.html#cross-table",
+    "href": "Predicting housing price.html#cross-table",
+    "title": "Michelle Kim",
+    "section": "cross table",
+    "text": "cross table"
+  },
+  {
+    "objectID": "Predicting housing price.html#build-linear-regression-model",
+    "href": "Predicting housing price.html#build-linear-regression-model",
+    "title": "Michelle Kim",
+    "section": "build linear regression model",
+    "text": "build linear regression model\nreg_model <- lm(log_price ~ #BEDS + BATHS+ SQUAREFEET+ #HPI+ # hpi_lag1+ hpi_lag3+ #hpi_lag6+ # hpi_1m_pct+ hpi_3m_pct+ # hpi_6m_pct+ houseage+ #total_beds_baths, #bath_bed_ratio+ #sqrt_beds+ LOTSIZE_imputed_ind+ log_lotsize, #month_ind, data = train_data ) summary(reg_model) # predict linear regression model on testing data prediction <- predict(reg_model, newdata = test_data) plot(prediction, test_data\\(log_price) mse_pred<- mean((test_data\\)log_price - prediction)^2) sqrt(mse_pred)"
+  },
+  {
+    "objectID": "Predicting housing price.html#build-random-forest-model",
+    "href": "Predicting housing price.html#build-random-forest-model",
+    "title": "Michelle Kim",
+    "section": "build random forest model",
+    "text": "build random forest model\n#check missing value of train_data train.rf <- na.omit(train_data) colSums(is.na(train_data_rf)) colSums(is.na(train_data)) # check missing value of test_data test.rf <- na.omit(test_data) colSums(is.na(test_data_rf)) colSums(is.na(test_data))"
+  },
+  {
+    "objectID": "Predicting housing price.html#build-gradient-boosting-tree-model",
+    "href": "Predicting housing price.html#build-gradient-boosting-tree-model",
+    "title": "Michelle Kim",
+    "section": "build gradient boosting tree model",
+    "text": "build gradient boosting tree model\nlibrary(gbm) # drop similar variables based on importance train_data2<-subset(train_data, select = -c(hpi_lag3,hpi_1m_pct,hpi_6m_pct,hpi_lag1, HPI))\nset.seed(1) n_trees <- 100 learning_rate <- 0.1 max_depth <- 10 pred_train<- matrix(0, nrow = nrow(train_data2), ncol = n_trees)\npred_test <- matrix(0, nrow = nrow(test_data), ncol = n_trees) #use for loop to make predict for (i in 1:n_trees) { model <- gbm(log_price ~ ., data = train_data2, n.trees = i, interaction.depth = max_depth, shrinkage = learning_rate, distribution = “gaussian”) pred_train[, i] <- predict(model, newdata = train_data2, n.trees = i) pred_test[, i] <- predict(model, newdata = test_data, n.trees = i) }\n#combine the prediction error_list_train <- apply((pred_train-train_data2$log_price)^2, 2, mean)\nerror_list_test <- apply((pred_test-test_data$log_price)^2, 2, mean)\nplot(1:n_trees, error_list_train, type=“l”, col= “blue”, xlab=“nTree”, ylab=“Error”, )\nlines(1:n_trees,error_list_test, type=“l”, col = “red”) legend(“topright”, legend = c(“error_list_train”, “error_list_test”), col = c(“blue”, “red”), lty = 1)\n#best model best_model <- gbm(log_price ~ ., data = train_data, n.trees = 60, interaction.depth = 10, shrinkage = 0.1,n.minobsinnode = 5, distribution = “gaussian”) best_pred <- predict(best_model, newdata = test_data) MSE.gbm = mean((test_data$log_price - best_pred)^2)"
   }
 ]
