@@ -1,0 +1,13 @@
+Question2.
+
+![](images/MicrosoftTeams-image.png){width="495"}
+
+Question 3.
+
+Weak Entities are dependent on another entity set. They are associated with an identifying entity. If entity set does not have enough attributes to present uniquely, weak entities provide extra information to identify uniquely.
+
+Question4.
+
+**Select e.ID,person_name from employee inner join works on e.ID = w.ID inner join company on W.company_name = company.company_name where employee.city = company.city;**
+
+4b) Although the query is syntactically correct, it does not compute the expected answer / dept_name is attribute of both "course" and "instructor. Natural join shows only when instructor teaches a course in her or his own department.

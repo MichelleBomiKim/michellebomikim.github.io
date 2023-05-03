@@ -1,0 +1,36 @@
+install.packages("haven")
+library(haven)
+summary("TEDS_2016")
+TEDS_2016<-read_stata("https://github.com/datageneration/home/blob/master/DataProgramming/data/TEDS_2016.dta?raw=true")
+#There are missing values
+#How to deal with Missingvalues
+is.na("Tondu")
+install.packages("tidyverse")
+library("tidyverse")
+install.packages("dplyr")
+Tondu_female <- xtabs(~ Tondu + female, data= TEDS_2016)
+Tondu_female
+Tondu_income <- xtabs(~ Tondu + income, data = TEDS_2016 )
+Tondu_income
+Tondu_vontesai <- xtabs(~ Tondu + votetsai, data = TEDS_2016)
+boxplot(age ~ Tondu, data=TEDS_2016, xlab = "Tondu", ylab = "age", main = "Tondu and Age")
+
+TEDS_2016$Tondu<-as.numeric(TEDS_2016$Tondu,labels=c("Unificationnow”,
+                                                     “Statusquo,unif.infuture”,
+                                                     “Statusquo,decidelater",
+                                                     "Statusquoforever",
+                                                     "Statusquo,indep.infuture",
+                                                     "Independencenow”,
+                                                     “Noresponse"))
+
+barplot(table_tondu,
+main = "Barchart of Tondu",
+ylab = "Frequency",
+names.arg = c("unification now",
+              "Statusquo",
+              "unif.infuture",
+              "Statusquoforever",
+              "Statusquo,indep.infuture",
+              "Independencenow",
+              "Noresponse"))
+

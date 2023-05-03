@@ -1,0 +1,4 @@
+Earthquake<- query_1_
+Earthquake2<-
+newdata<- subset(Earthquake, select = c(latitude, mag, longitude, time, place, depth))
+

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Michelle Kim - Michellebomikim</title>
+<title>Michelle Kim – assignment4</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,6 +59,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -80,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link" href="./index.html">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -160,32 +161,46 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#this-is-a-michelle-kims-website.-most-of-my-assignments-can-be-find-here-im-currently-enrolled-in-data-visualization-and-data-methods." id="toc-this-is-a-michelle-kims-website.-most-of-my-assignments-can-be-find-here-im-currently-enrolled-in-data-visualization-and-data-methods." class="nav-link active" data-scroll-target="#this-is-a-michelle-kims-website.-most-of-my-assignments-can-be-find-here-im-currently-enrolled-in-data-visualization-and-data-methods.">This is a Michelle Kim’s website. Most of my assignments can be find here! I’m currently enrolled in Data Visualization and Data Methods.</a></li>
+  <li><a href="#gentle-machine-learning" id="toc-gentle-machine-learning" class="nav-link active" data-scroll-target="#gentle-machine-learning">Gentle Machine Learning</a></li>
+  <li><a href="#principal-component-analysis" id="toc-principal-component-analysis" class="nav-link" data-scroll-target="#principal-component-analysis">Principal Component Analysis</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Michellebomikim</h1>
+
+
+<section id="gentle-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="gentle-machine-learning">Gentle Machine Learning</h2>
+</section>
+<section id="principal-component-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="principal-component-analysis">Principal Component Analysis</h2>
+<p>library(datasets) library(ISLR) arrest = USArrests states=row.names(USArrests) names(USArrests) # Get means and variances of variables apply(USArrests, 2, mean) apply(USArrests, 2, var) # PCA with scaling pr.out=prcomp(USArrests, scale=TRUE) names(pr.out) # Five pr.out<span class="math inline">\(center # the centering and scaling used (means) pr.out\)</span>scale # the matrix of variable loadings (eigenvectors) dim(pr.out<span class="math inline">\(x) pr.out\)</span>rotation=-pr.out<span class="math inline">\(rotation pr.out\)</span>x=-pr.out<span class="math inline">\(x biplot(pr.out, scale=0) pr.out\)</span>sdev pr.var=pr.out$sdev^2 pr.var pve=pr.var/sum(pr.var) pve plot(pve, xlab=“Principal Component”, ylab=“Proportion of Variance Explained”, ylim=c(0,1),type=‘b’)</p>
+<p>library(dplyr) library(ggplot2) library(RColorBrewer)</p>
+<p>computers = read.csv(“https://raw.githubusercontent.com/guru99-edu/R-Programming/master/computers.csv”)</p>
+<p>rescaled_comp &lt;- computers[4:5] %&gt;% mutate(hd_scal = scale(hd), ram_scal = scale(ram)) %&gt;% select(c(hd_scal, ram_scal))</p>
+<p>ggplot(data = rescaled_comp, aes(x = hd_scal, y = ram_scal)) + geom_point(pch=20, col = “blue”) + theme_bw() + labs(x = “Hard drive size (Scaled)”, y =“RAM size (Scaled)” ) + theme(text = element_text(family=“Georgia”))</p>
+<p>library(dplyr) library(ggplot2) library(RColorBrewer)</p>
+<p>computers = read.csv(“https://raw.githubusercontent.com/guru99-edu/R-Programming/master/computers.csv”)</p>
+<p>Only retain two variables for illustration</p>
+<p>rescaled_comp &lt;- computers[4:5] %&gt;% mutate(hd_scal = scale(hd), ram_scal = scale(ram)) %&gt;% select(c(hd_scal, ram_scal))</p>
+<p>ggplot(data = rescaled_comp, aes(x = hd_scal, y = ram_scal)) + geom_point(pch=20, col = “blue”) + theme_bw() + labs(x = “Hard drive size (Scaled)”, y =“RAM size (Scaled)” ) + theme(text = element_text(family=“Georgia”))</p>
+<p>install.packages(“animation”)</p>
+<p>install.packages(“animation”) library(animation) set.seed(2345) library(animation)</p>
+<p>Animate the K-mean clustering process, cluster no. = 4</p>
+<p>kmeans.ani(rescaled_comp[1:2], centers = 4, pch = 15:18, col = 1:4)</p>
+<p><embed src="Rplot08.pdf" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><embed src="Rplot09.pdf" width="394" height="68"></p>
+</figure>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<section id="this-is-a-michelle-kims-website.-most-of-my-assignments-can-be-find-here-im-currently-enrolled-in-data-visualization-and-data-methods." class="level3">
-<h3 class="anchored" data-anchor-id="this-is-a-michelle-kims-website.-most-of-my-assignments-can-be-find-here-im-currently-enrolled-in-data-visualization-and-data-methods.">This is a Michelle Kim’s website. Most of my assignments can be find here! I’m currently enrolled in Data Visualization and Data Methods.</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Rplot10.png" class="img-fluid figure-img" width="337"></p>
+</figure>
+</div>
 
 
 </section>

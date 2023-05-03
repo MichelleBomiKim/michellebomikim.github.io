@@ -1,0 +1,9 @@
+library(haven)
+TEDS_2016<-read_stata("https://github.com/datageneration/home/blob/master/DataProgramming/data/TEDS_2016.dta?raw=true")
+data <- "TEDS_2016"
+summary(data)
+nrow(data)
+
+glm.vt=glm(votetsai~edu,data=TEDS_2016,family=binomial)
+summary(glm.vt)
+

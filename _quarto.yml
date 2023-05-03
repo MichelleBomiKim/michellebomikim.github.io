@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "michellebomikim"
+  title: "Michelle Kim"
   navbar:
     left:
       - href: index.qmd
@@ -13,23 +13,37 @@ website:
         menu: 
           - href: assignment1.qmd
             text: part1(1,2,3)
-          - href: assignment2.qmd
+          - href: Assignment2.qmd
             text: assignment2
-          - href: assignmet8
-            text: assignment
+          - href: sqlpractice.qmd
+            text: SQL Practice 
+          - href: Assignment5.qmd
+            text: Assignment5
+          - href: ppt.qmd
+            text: Proposal 
+          - href: EPPS63565.qmd
+            text: Assignment6
+          - href: app.r
+            text: Earthquake 
+      - text: EPPS6323
+        menu: 
+          - href: HousePricechangprediction.qmd
+            text: Housepricechangeprediction 
+        
       - href: https://michellebomikim.github.io/blog/
         text: blog 
       - href: EPPS6323.qmd
         text: EPPS6323
+      - href: research.qmd  
+        text: Research 
+          
       
       
       
       
-      
-
 format:
   html:
-    theme: journal  
+    theme: morph
     css: styles.css
     toc: true
 
