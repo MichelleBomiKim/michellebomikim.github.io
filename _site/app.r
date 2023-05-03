@@ -4,6 +4,18 @@ library(ggplot2)
 library(lubridate)
 library(rsconnect)
 
+library(RPostgres)
+library(pool)
+
+pool <- dbPool(
+  drv = Postgres(),
+  dbname = "Mydatabase",
+  host = "127.0.0.1",
+  port = 5432,
+  user = "postgres",
+  password = "0823"
+)
+
 pool <- dbPool(
   drv = Postgres(),
   dbname = "Mydatabase",
@@ -89,4 +101,11 @@ server <- function(input, output) {
 # Run the application
 shinyApp(ui = ui, server = server)
 
+# Deploy
+
+
+#library(rsconnect)
+#rsconnect::setAccountInfo(name='michellebomikim',token='EACFB8C3507EDEC3DD24DD9EB1B83FAD',secret='seP/2P6kjDOhiX8NxvP8luflOLuJOmrzQyJxIHJb')
+                          
+                          
 
